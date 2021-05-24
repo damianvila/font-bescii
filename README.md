@@ -6,7 +6,7 @@ An 8x8 pixel font based on PETSCII for [BASIC Engine](http://basicengine.org/).
 
 This font was inspired by the Commodore 64 font (PETSCII), but with some modifications to correct a few flaws, and a unique idiosyncracy that gives it a special flavour. Pixel art is included in the Private Use Are, to allow for easy game creation (following the idea of card suit inclusion in PETSCII to allow for card games development).  
 
-A glyphs reference chart is included in the **Demo** folder.
+A glyphs reference chart is included in the **demo** folder.
 
 ## Features
 
