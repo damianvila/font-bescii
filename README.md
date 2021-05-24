@@ -33,10 +33,14 @@ A glyphs reference chart is included in the **Demo** folder.
 
 ## Pixel Art Demo
 
+**Adventure Game**  
+
 ![Adventure Game](https://damianvila.com/bescii/adventure.png)  
+
+**Space Aliens Game**  
 
 ![Aliens Game](https://damianvila.com/bescii/invaders.png)  
 
 ## License
 
-This project is licensed under a (CC0 1.0 Universal licence)[https://creativecommons.org/publicdomain/zero/1.0/].
+This project is licensed under a [CC0 1.0 Universal licence](https://creativecommons.org/publicdomain/zero/1.0/).
