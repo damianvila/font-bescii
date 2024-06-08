@@ -1,891 +1,2350 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>BESCII Glyphs Reference</title>
-  <!-- Fonts -->
-  <style>
-    /* Normalize */
-    html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}dl dl,dl ol,dl ul,ol dl,ul dl{margin:0}ol ol,ol ul,ul ol,ul ul{margin:0}hr{box-sizing:content-box;color:inherit;height:0;overflow:visible}main{display:block}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}table{border-color:inherit;text-indent:0}button,input,select{margin:0}button{overflow:visible;text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}fieldset{padding:.35em .75em .625em}input{overflow:visible}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;white-space:normal}progress{display:inline-block;vertical-align:baseline}select{text-transform:none}textarea{margin:0;overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}details{display:block}dialog{background-color:#fff;border:solid;color:#000;display:block;height:-moz-fit-content;height:-webkit-fit-content;height:fit-content;left:0;margin:auto;padding:1em;position:absolute;right:0;width:-moz-fit-content;width:-webkit-fit-content;width:fit-content}dialog:not([open]){display:none}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
-    /* Fonts */
-    @font-face {
-        font-family: 'Bescii';
-        src: url('fonts/bescii.woff2') format('woff2'),
-            url('fonts/bescii.woff') format('woff');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-    /* Variables */
+<!doctype html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>BESCII Glyphs Reference</title>
+<style>
+  /* Normalize */
+  html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}dl dl,dl ol,dl ul,ol dl,ul dl{margin:0}ol ol,ol ul,ul ol,ul ul{margin:0}hr{box-sizing:content-box;color:inherit;height:0;overflow:visible}main{display:block}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}table{border-color:inherit;text-indent:0}button,input,select{margin:0}button{overflow:visible;text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}fieldset{padding:.35em .75em .625em}input{overflow:visible}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;white-space:normal}progress{display:inline-block;vertical-align:baseline}select{text-transform:none}textarea{margin:0;overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}details{display:block}dialog{background-color:#fff;border:solid;color:#000;display:block;height:-moz-fit-content;height:-webkit-fit-content;height:fit-content;left:0;margin:auto;padding:1em;position:absolute;right:0;width:-moz-fit-content;width:-webkit-fit-content;width:fit-content}dialog:not([open]){display:none}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+  /* Fonts */
+  @font-face {
+    font-family: 'Bescii';
+    src: url('fonts/Bescii-Mono.woff2') format('woff2'),
+        url('fonts/Bescii-Mono.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Variables */
+  :root {
+    --text: rgb(16,16,16);
+    --page: rgb(255,255,255);
+    --body: rgb(240,240,240);
+    --font: 'Bescii';
+    --link: rgb(0,128,255);
+  }
+  /* Light mode */
+  @media (prefers-color-scheme: light) {
     :root {
       --text: rgb(16,16,16);
-      --page: rgb(240,240,240);
-      --body: rgb(255,255,255);
+      --page: rgb(255,255,255);
+      --body: rgb(240,240,240);
     }
-    /* Light mode */
-    @media (prefers-color-scheme: light) {
-      :root {
-        --text: rgb(16,16,16);
-        --page: rgb(240,240,240);
-        --body: rgb(255,255,255);
-      }
+  }
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: rgb(240,240,240);
+      --page: rgb(0,0,0);
+      --body: rgb(16,16,16);
     }
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --text: rgb(240,240,240);
-        --page: rgb(16,16,16);
-        --body: rgb(0,0,0);
-      }
-    }
-    /* Styles */
+  }
+  html {
+    height: 100%
+  }
+
+  body {
+    margin: 0;
+    background: var(--body);
+    color: var(--text);
+    font-family: sans-serif
+  }
+  main {
+    padding: 1%
+  }
+  main>* {
+    max-width: 620px;
+    margin: 1em auto
+  }
+  h1,
+  h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center
+  }
+  a {
+    text-decoration: none;
+    color: var(--link)
+  }
+  a[href]:hover {
+    text-decoration: underline
+  }
+  #t {
+    table-layout: fixed;
+    border-collapse: collapse;
+    max-width: none;
+    font-size: 16px;
+    cursor: default
+  }
+  tr.b {
+    border-bottom: 1px solid #808080
+  }
+  td {
+    border: .9px solid #808080;
+    width: 40px;
+    height: 40px;
+    max-width: 64px;
+    text-align: center;
+    vertical-align: middle
+  }
+  td.c {
+    background: var(--page);
+    font: 30px var(--font), monospace;
+  }
+  th {
+    font: 10px sans-serif;
+    padding: 8px
+  }
+  footer {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1em 2em;
+    font-size: 14px;
+    text-align: center;
+  }
+  .wrapper {
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 3rem 1.5rem 2rem;
+    background-color: var(--body);
+  }
+  .title {
+    margin: 1.5rem 0;
+    font-family: var(--font), monospace;
+    font-weight: 400;
+  }
+  .description {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  @media print {
     body {
-      background-color: var(--page);
-      color: var(--text);
-      font-family: sans-serif;
-      font-size: 1rem;
+      background: 0 0;
       padding: 0;
-      margin: 0;
+      border: 0;
+      min-height: 0
     }
-    a {
-      color: #369;
-    }
-    .wrapper {
-      width: 100%;
-      max-width: 75rem;
-      margin: 0 auto;
-      box-sizing: border-box;
-      padding: 3rem 1.5rem 2rem;
-      background-color: var(--body);
-    }
-    .title {
-      margin: 1.5rem 0;
-      font-family: 'Bescii', monospace;
-    }
-    .description {
-      margin-bottom: 0;
-    }
-    .main {
-      width: auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      align-content: flex-start;
-      justify-content: flex-start;
-    }
-    .group {
-      margin-top: 3rem;
-      width: 100%;
-      font-weight: 400;
-    }
-    .subgroup {
-      margin-top: 1.5rem;
-      width: 100%;
-      font-style: italic;
-      font-weight: 400;
-      opacity: .5;
-    }
-    .group + .subgroup {
-      margin-top: 0;
-    }
-    .glyph {
-      width: 3rem;
-      flex: 0 1 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      align-content: flex-start;
-      justify-content: center;
-      box-sizing: border-box;
-      margin: 1px;
-    }
-    .char {
-      width: 100%;
-      height: 2.75rem;
-      flex: 0 0 auto;
-      font-family: 'Bescii', monospace;
-      font-size: 1.5rem;
-      font-weight: 400;
-      line-height: 1;
-      background-color: rgba(128,128,128,.15);
-      color: var(--text);
-      display: flex;
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-    }
-    .unicode {
-      width: 100%;
-      font-size: .625rem;
-      padding: .25rem 0;
-      text-align: center;
-      color: white;
-      background-color: #369;
-      text-transform: uppercase;
-    }
+
+    body,
+    dt,
     footer {
-      margin: 2rem 0 1rem;
-      font-size: .75rem;
-      text-align: right;
+      color: #000
     }
-  </style>
-</head>
+
+    tbody {
+      border-top: 1px solid #000
+    }
+
+    td {
+      border: .5px solid #000;
+      color: #000
+    }
+
+    th {
+      padding-left: 0
+    }
+  }
+</style>
+<style></style>
+
 <body>
-  <div class="wrapper">
+  <header class="wrapper">
     <h1 class="title">BESCII Glyphs Reference</h1>
-    <p class="description">The following charts show the Unicode mappings for the glyphs included in the BASIC Engine ASCII font (BESCII). The main mapping is shown (some characters, specially those taken from PETSCII have more than one code point). All PETSCII characters have the mapping referenced as "Direct PETSCII" in the following chart: <a href="https://style64.org/petscii/" target="_blank">PETSCII Reference</a></p>
-    <section class="main">
-
-      <h2 class="group">Basic Latin</h2>
-
-      <!-- 0x20 -->
-      <div class="glyph"><span class="char">&#x20;</span><span class="unicode">0020</span></div>
-      <div class="glyph"><span class="char">&#x21;</span><span class="unicode">0021</span></div>
-      <div class="glyph"><span class="char">&#x22;</span><span class="unicode">0022</span></div>
-      <div class="glyph"><span class="char">&#x23;</span><span class="unicode">0023</span></div>
-      <div class="glyph"><span class="char">&#x24;</span><span class="unicode">0024</span></div>
-      <div class="glyph"><span class="char">&#x25;</span><span class="unicode">0025</span></div>
-      <div class="glyph"><span class="char">&#x26;</span><span class="unicode">0026</span></div>
-      <div class="glyph"><span class="char">&#x27;</span><span class="unicode">0027</span></div>
-      <div class="glyph"><span class="char">&#x28;</span><span class="unicode">0028</span></div>
-      <div class="glyph"><span class="char">&#x29;</span><span class="unicode">0029</span></div>
-      <div class="glyph"><span class="char">&#x2a;</span><span class="unicode">002A</span></div>
-      <div class="glyph"><span class="char">&#x2b;</span><span class="unicode">002B</span></div>
-      <div class="glyph"><span class="char">&#x2c;</span><span class="unicode">002C</span></div>
-      <div class="glyph"><span class="char">&#x2d;</span><span class="unicode">002D</span></div>
-      <div class="glyph"><span class="char">&#x2e;</span><span class="unicode">002E</span></div>
-      <div class="glyph"><span class="char">&#x2f;</span><span class="unicode">002F</span></div>
-      <!-- 0x30 -->
-      <div class="glyph"><span class="char">&#x30;</span><span class="unicode">0030</span></div>
-      <div class="glyph"><span class="char">&#x31;</span><span class="unicode">0031</span></div>
-      <div class="glyph"><span class="char">&#x32;</span><span class="unicode">0032</span></div>
-      <div class="glyph"><span class="char">&#x33;</span><span class="unicode">0033</span></div>
-      <div class="glyph"><span class="char">&#x34;</span><span class="unicode">0034</span></div>
-      <div class="glyph"><span class="char">&#x35;</span><span class="unicode">0035</span></div>
-      <div class="glyph"><span class="char">&#x36;</span><span class="unicode">0036</span></div>
-      <div class="glyph"><span class="char">&#x37;</span><span class="unicode">0037</span></div>
-      <div class="glyph"><span class="char">&#x38;</span><span class="unicode">0038</span></div>
-      <div class="glyph"><span class="char">&#x39;</span><span class="unicode">0039</span></div>
-      <div class="glyph"><span class="char">&#x3a;</span><span class="unicode">003A</span></div>
-      <div class="glyph"><span class="char">&#x3b;</span><span class="unicode">003B</span></div>
-      <div class="glyph"><span class="char">&#x3c;</span><span class="unicode">003C</span></div>
-      <div class="glyph"><span class="char">&#x3d;</span><span class="unicode">003D</span></div>
-      <div class="glyph"><span class="char">&#x3e;</span><span class="unicode">003E</span></div>
-      <div class="glyph"><span class="char">&#x3f;</span><span class="unicode">003F</span></div>
-      <!-- 0x40 -->
-      <div class="glyph"><span class="char">&#x40;</span><span class="unicode">0040</span></div>
-      <div class="glyph"><span class="char">&#x41;</span><span class="unicode">0041</span></div>
-      <div class="glyph"><span class="char">&#x42;</span><span class="unicode">0042</span></div>
-      <div class="glyph"><span class="char">&#x43;</span><span class="unicode">0043</span></div>
-      <div class="glyph"><span class="char">&#x44;</span><span class="unicode">0044</span></div>
-      <div class="glyph"><span class="char">&#x45;</span><span class="unicode">0045</span></div>
-      <div class="glyph"><span class="char">&#x46;</span><span class="unicode">0046</span></div>
-      <div class="glyph"><span class="char">&#x47;</span><span class="unicode">0047</span></div>
-      <div class="glyph"><span class="char">&#x48;</span><span class="unicode">0048</span></div>
-      <div class="glyph"><span class="char">&#x49;</span><span class="unicode">0049</span></div>
-      <div class="glyph"><span class="char">&#x4a;</span><span class="unicode">004A</span></div>
-      <div class="glyph"><span class="char">&#x4b;</span><span class="unicode">004B</span></div>
-      <div class="glyph"><span class="char">&#x4c;</span><span class="unicode">004C</span></div>
-      <div class="glyph"><span class="char">&#x4d;</span><span class="unicode">004D</span></div>
-      <div class="glyph"><span class="char">&#x4e;</span><span class="unicode">004E</span></div>
-      <div class="glyph"><span class="char">&#x4f;</span><span class="unicode">004F</span></div>
-      <!-- 0x50 -->
-      <div class="glyph"><span class="char">&#x50;</span><span class="unicode">0050</span></div>
-      <div class="glyph"><span class="char">&#x51;</span><span class="unicode">0051</span></div>
-      <div class="glyph"><span class="char">&#x52;</span><span class="unicode">0052</span></div>
-      <div class="glyph"><span class="char">&#x53;</span><span class="unicode">0053</span></div>
-      <div class="glyph"><span class="char">&#x54;</span><span class="unicode">0054</span></div>
-      <div class="glyph"><span class="char">&#x55;</span><span class="unicode">0055</span></div>
-      <div class="glyph"><span class="char">&#x56;</span><span class="unicode">0056</span></div>
-      <div class="glyph"><span class="char">&#x57;</span><span class="unicode">0057</span></div>
-      <div class="glyph"><span class="char">&#x58;</span><span class="unicode">0058</span></div>
-      <div class="glyph"><span class="char">&#x59;</span><span class="unicode">0059</span></div>
-      <div class="glyph"><span class="char">&#x5a;</span><span class="unicode">005A</span></div>
-      <div class="glyph"><span class="char">&#x5b;</span><span class="unicode">005B</span></div>
-      <div class="glyph"><span class="char">&#x5c;</span><span class="unicode">005C</span></div>
-      <div class="glyph"><span class="char">&#x5d;</span><span class="unicode">005D</span></div>
-      <div class="glyph"><span class="char">&#x5e;</span><span class="unicode">005E</span></div>
-      <div class="glyph"><span class="char">&#x5f;</span><span class="unicode">005F</span></div>
-      <!-- 0x60 -->
-      <div class="glyph"><span class="char">&#x60;</span><span class="unicode">0060</span></div>
-      <div class="glyph"><span class="char">&#x61;</span><span class="unicode">0061</span></div>
-      <div class="glyph"><span class="char">&#x62;</span><span class="unicode">0062</span></div>
-      <div class="glyph"><span class="char">&#x63;</span><span class="unicode">0063</span></div>
-      <div class="glyph"><span class="char">&#x64;</span><span class="unicode">0064</span></div>
-      <div class="glyph"><span class="char">&#x65;</span><span class="unicode">0065</span></div>
-      <div class="glyph"><span class="char">&#x66;</span><span class="unicode">0066</span></div>
-      <div class="glyph"><span class="char">&#x67;</span><span class="unicode">0067</span></div>
-      <div class="glyph"><span class="char">&#x68;</span><span class="unicode">0068</span></div>
-      <div class="glyph"><span class="char">&#x69;</span><span class="unicode">0069</span></div>
-      <div class="glyph"><span class="char">&#x6a;</span><span class="unicode">006A</span></div>
-      <div class="glyph"><span class="char">&#x6b;</span><span class="unicode">006B</span></div>
-      <div class="glyph"><span class="char">&#x6c;</span><span class="unicode">006C</span></div>
-      <div class="glyph"><span class="char">&#x6d;</span><span class="unicode">006D</span></div>
-      <div class="glyph"><span class="char">&#x6e;</span><span class="unicode">006E</span></div>
-      <div class="glyph"><span class="char">&#x6f;</span><span class="unicode">006F</span></div>
-      <!-- 0x70 -->
-      <div class="glyph"><span class="char">&#x70;</span><span class="unicode">0070</span></div>
-      <div class="glyph"><span class="char">&#x71;</span><span class="unicode">0071</span></div>
-      <div class="glyph"><span class="char">&#x72;</span><span class="unicode">0072</span></div>
-      <div class="glyph"><span class="char">&#x73;</span><span class="unicode">0073</span></div>
-      <div class="glyph"><span class="char">&#x74;</span><span class="unicode">0074</span></div>
-      <div class="glyph"><span class="char">&#x75;</span><span class="unicode">0075</span></div>
-      <div class="glyph"><span class="char">&#x76;</span><span class="unicode">0076</span></div>
-      <div class="glyph"><span class="char">&#x77;</span><span class="unicode">0077</span></div>
-      <div class="glyph"><span class="char">&#x78;</span><span class="unicode">0078</span></div>
-      <div class="glyph"><span class="char">&#x79;</span><span class="unicode">0079</span></div>
-      <div class="glyph"><span class="char">&#x7a;</span><span class="unicode">007A</span></div>
-      <div class="glyph"><span class="char">&#x7b;</span><span class="unicode">007B</span></div>
-      <div class="glyph"><span class="char">&#x7c;</span><span class="unicode">007C</span></div>
-      <div class="glyph"><span class="char">&#x7d;</span><span class="unicode">007D</span></div>
-      <div class="glyph"><span class="char">&#x7e;</span><span class="unicode">007E</span></div>
-
-      <h2 class="group">Latin-1 Supplement</h2>
-
-      <!-- 0xa0 -->
-      <div class="glyph"><span class="char">&#xa0;</span><span class="unicode">00A0</span></div>
-      <div class="glyph"><span class="char">&#xa1;</span><span class="unicode">00A1</span></div>
-      <div class="glyph"><span class="char">&#xa2;</span><span class="unicode">00A2</span></div>
-      <div class="glyph"><span class="char">&#xa3;</span><span class="unicode">00A3</span></div>
-      <div class="glyph"><span class="char">&#xa4;</span><span class="unicode">00A4</span></div>
-      <div class="glyph"><span class="char">&#xa5;</span><span class="unicode">00A5</span></div>
-      <div class="glyph"><span class="char">&#xa6;</span><span class="unicode">00A6</span></div>
-      <div class="glyph"><span class="char">&#xa7;</span><span class="unicode">00A7</span></div>
-      <div class="glyph"><span class="char">&#xa8;</span><span class="unicode">00A8</span></div>
-      <div class="glyph"><span class="char">&#xa9;</span><span class="unicode">00A9</span></div>
-      <div class="glyph"><span class="char">&#xaa;</span><span class="unicode">00AA</span></div>
-      <div class="glyph"><span class="char">&#xab;</span><span class="unicode">00AB</span></div>
-      <div class="glyph"><span class="char">&#xac;</span><span class="unicode">00AC</span></div>
-      <div class="glyph"><span class="char">&#xad;</span><span class="unicode">00AD</span></div>
-      <div class="glyph"><span class="char">&#xae;</span><span class="unicode">00AE</span></div>
-      <div class="glyph"><span class="char">&#xaf;</span><span class="unicode">00AF</span></div>
-      <!-- 0xb0 -->
-      <div class="glyph"><span class="char">&#xb0;</span><span class="unicode">00B0</span></div>
-      <div class="glyph"><span class="char">&#xb1;</span><span class="unicode">00B1</span></div>
-      <div class="glyph"><span class="char">&#xb2;</span><span class="unicode">00B2</span></div>
-      <div class="glyph"><span class="char">&#xb3;</span><span class="unicode">00B3</span></div>
-      <div class="glyph"><span class="char">&#xb4;</span><span class="unicode">00B4</span></div>
-      <div class="glyph"><span class="char">&#xb5;</span><span class="unicode">00B5</span></div>
-      <div class="glyph"><span class="char">&#xb6;</span><span class="unicode">00B6</span></div>
-      <div class="glyph"><span class="char">&#xb7;</span><span class="unicode">00B7</span></div>
-      <div class="glyph"><span class="char">&#xb8;</span><span class="unicode">00B8</span></div>
-      <div class="glyph"><span class="char">&#xb9;</span><span class="unicode">00B9</span></div>
-      <div class="glyph"><span class="char">&#xba;</span><span class="unicode">00BA</span></div>
-      <div class="glyph"><span class="char">&#xbb;</span><span class="unicode">00BB</span></div>
-      <div class="glyph"><span class="char">&#xbc;</span><span class="unicode">00BC</span></div>
-      <div class="glyph"><span class="char">&#xbd;</span><span class="unicode">00BD</span></div>
-      <div class="glyph"><span class="char">&#xbe;</span><span class="unicode">00BE</span></div>
-      <div class="glyph"><span class="char">&#xbf;</span><span class="unicode">00BF</span></div>
-      <!-- 0xc0 -->
-      <div class="glyph"><span class="char">&#xc0;</span><span class="unicode">00C0</span></div>
-      <div class="glyph"><span class="char">&#xc1;</span><span class="unicode">00C1</span></div>
-      <div class="glyph"><span class="char">&#xc2;</span><span class="unicode">00C2</span></div>
-      <div class="glyph"><span class="char">&#xc3;</span><span class="unicode">00C3</span></div>
-      <div class="glyph"><span class="char">&#xc4;</span><span class="unicode">00C4</span></div>
-      <div class="glyph"><span class="char">&#xc5;</span><span class="unicode">00C5</span></div>
-      <div class="glyph"><span class="char">&#xc6;</span><span class="unicode">00C6</span></div>
-      <div class="glyph"><span class="char">&#xc7;</span><span class="unicode">00C7</span></div>
-      <div class="glyph"><span class="char">&#xc8;</span><span class="unicode">00C8</span></div>
-      <div class="glyph"><span class="char">&#xc9;</span><span class="unicode">00C9</span></div>
-      <div class="glyph"><span class="char">&#xca;</span><span class="unicode">00CA</span></div>
-      <div class="glyph"><span class="char">&#xcb;</span><span class="unicode">00CB</span></div>
-      <div class="glyph"><span class="char">&#xcc;</span><span class="unicode">00CC</span></div>
-      <div class="glyph"><span class="char">&#xcd;</span><span class="unicode">00CD</span></div>
-      <div class="glyph"><span class="char">&#xce;</span><span class="unicode">00CE</span></div>
-      <div class="glyph"><span class="char">&#xcf;</span><span class="unicode">00CF</span></div>
-      <!-- 0xd0 -->
-      <div class="glyph"><span class="char">&#xd0;</span><span class="unicode">00D0</span></div>
-      <div class="glyph"><span class="char">&#xd1;</span><span class="unicode">00D1</span></div>
-      <div class="glyph"><span class="char">&#xd2;</span><span class="unicode">00D2</span></div>
-      <div class="glyph"><span class="char">&#xd3;</span><span class="unicode">00D3</span></div>
-      <div class="glyph"><span class="char">&#xd4;</span><span class="unicode">00D4</span></div>
-      <div class="glyph"><span class="char">&#xd5;</span><span class="unicode">00D5</span></div>
-      <div class="glyph"><span class="char">&#xd6;</span><span class="unicode">00D6</span></div>
-      <div class="glyph"><span class="char">&#xd7;</span><span class="unicode">00D7</span></div>
-      <div class="glyph"><span class="char">&#xd8;</span><span class="unicode">00D8</span></div>
-      <div class="glyph"><span class="char">&#xd9;</span><span class="unicode">00D9</span></div>
-      <div class="glyph"><span class="char">&#xda;</span><span class="unicode">00DA</span></div>
-      <div class="glyph"><span class="char">&#xdb;</span><span class="unicode">00DB</span></div>
-      <div class="glyph"><span class="char">&#xdc;</span><span class="unicode">00DC</span></div>
-      <div class="glyph"><span class="char">&#xdd;</span><span class="unicode">00DD</span></div>
-      <div class="glyph"><span class="char">&#xde;</span><span class="unicode">00DE</span></div>
-      <div class="glyph"><span class="char">&#xdf;</span><span class="unicode">00DF</span></div>
-      <!-- 0xe0 -->
-      <div class="glyph"><span class="char">&#xe0;</span><span class="unicode">00E0</span></div>
-      <div class="glyph"><span class="char">&#xe1;</span><span class="unicode">00E1</span></div>
-      <div class="glyph"><span class="char">&#xe2;</span><span class="unicode">00E2</span></div>
-      <div class="glyph"><span class="char">&#xe3;</span><span class="unicode">00E3</span></div>
-      <div class="glyph"><span class="char">&#xe4;</span><span class="unicode">00E4</span></div>
-      <div class="glyph"><span class="char">&#xe5;</span><span class="unicode">00E5</span></div>
-      <div class="glyph"><span class="char">&#xe6;</span><span class="unicode">00E6</span></div>
-      <div class="glyph"><span class="char">&#xe7;</span><span class="unicode">00E7</span></div>
-      <div class="glyph"><span class="char">&#xe8;</span><span class="unicode">00E8</span></div>
-      <div class="glyph"><span class="char">&#xe9;</span><span class="unicode">00E9</span></div>
-      <div class="glyph"><span class="char">&#xea;</span><span class="unicode">00EA</span></div>
-      <div class="glyph"><span class="char">&#xeb;</span><span class="unicode">00EB</span></div>
-      <div class="glyph"><span class="char">&#xec;</span><span class="unicode">00EC</span></div>
-      <div class="glyph"><span class="char">&#xed;</span><span class="unicode">00ED</span></div>
-      <div class="glyph"><span class="char">&#xee;</span><span class="unicode">00EE</span></div>
-      <div class="glyph"><span class="char">&#xef;</span><span class="unicode">00EF</span></div>
-      <!-- 0xf0 -->
-      <div class="glyph"><span class="char">&#xf0;</span><span class="unicode">00F0</span></div>
-      <div class="glyph"><span class="char">&#xf1;</span><span class="unicode">00F1</span></div>
-      <div class="glyph"><span class="char">&#xf2;</span><span class="unicode">00F2</span></div>
-      <div class="glyph"><span class="char">&#xf3;</span><span class="unicode">00F3</span></div>
-      <div class="glyph"><span class="char">&#xf4;</span><span class="unicode">00F4</span></div>
-      <div class="glyph"><span class="char">&#xf5;</span><span class="unicode">00F5</span></div>
-      <div class="glyph"><span class="char">&#xf6;</span><span class="unicode">00F6</span></div>
-      <div class="glyph"><span class="char">&#xf7;</span><span class="unicode">00F7</span></div>
-      <div class="glyph"><span class="char">&#xf8;</span><span class="unicode">00F8</span></div>
-      <div class="glyph"><span class="char">&#xf9;</span><span class="unicode">00F9</span></div>
-      <div class="glyph"><span class="char">&#xfa;</span><span class="unicode">00FA</span></div>
-      <div class="glyph"><span class="char">&#xfb;</span><span class="unicode">00FB</span></div>
-      <div class="glyph"><span class="char">&#xfc;</span><span class="unicode">00FC</span></div>
-      <div class="glyph"><span class="char">&#xfd;</span><span class="unicode">00FD</span></div>
-      <div class="glyph"><span class="char">&#xfe;</span><span class="unicode">00FE</span></div>
-      <div class="glyph"><span class="char">&#xff;</span><span class="unicode">00FF</span></div>
-
-      <h2 class="group">Others (Mac Roman & Windows-1252)</h2>
-
-      <div class="glyph"><span class="char">&#x141;</span><span class="unicode">0141</span></div>
-      <div class="glyph"><span class="char">&#x152;</span><span class="unicode">0152</span></div>
-      <div class="glyph"><span class="char">&#x160;</span><span class="unicode">0160</span></div>
-      <div class="glyph"><span class="char">&#x1e9e;</span><span class="unicode">1E9E</span></div>
-      <div class="glyph"><span class="char">&#x178;</span><span class="unicode">0178</span></div>
-      <div class="glyph"><span class="char">&#x17d;</span><span class="unicode">017D</span></div>
-      <div class="glyph"><span class="char">&#x131;</span><span class="unicode">0131</span></div>
-      <div class="glyph"><span class="char">&#x142;</span><span class="unicode">0142</span></div>
-      <div class="glyph"><span class="char">&#x153;</span><span class="unicode">0153</span></div>
-      <div class="glyph"><span class="char">&#x161;</span><span class="unicode">0161</span></div>
-      <div class="glyph"><span class="char">&#x17e;</span><span class="unicode">017E</span></div>
-      <div class="glyph"><span class="char">&#xfb01;</span><span class="unicode">FB01</span></div>
-      <div class="glyph"><span class="char">&#xfb02;</span><span class="unicode">FB02</span></div>
-
-      <h2 class="group">Greek</h2>
-
-      <div class="glyph"><span class="char">&#x394;</span><span class="unicode">0394</span></div>
-      <div class="glyph"><span class="char">&#x3a3;</span><span class="unicode">03A3</span></div>
-      <div class="glyph"><span class="char">&#x3a9;</span><span class="unicode">03A9</span></div>
-      <div class="glyph"><span class="char">&#x3b1;</span><span class="unicode">03B1</span></div>
-      <div class="glyph"><span class="char">&#x3b2;</span><span class="unicode">03B2</span></div>
-      <div class="glyph"><span class="char">&#x3b3;</span><span class="unicode">03B3</span></div>
-      <div class="glyph"><span class="char">&#x3b4;</span><span class="unicode">03B4</span></div>
-      <div class="glyph"><span class="char">&#x3b5;</span><span class="unicode">03B5</span></div>
-      <div class="glyph"><span class="char">&#x3b8;</span><span class="unicode">03B8</span></div>
-      <div class="glyph"><span class="char">&#x3bb;</span><span class="unicode">03BB</span></div>
-      <div class="glyph"><span class="char">&#x3bc;</span><span class="unicode">03BC</span></div>
-      <div class="glyph"><span class="char">&#x3c0;</span><span class="unicode">03C0</span></div>
-      <div class="glyph"><span class="char">&#x3c3;</span><span class="unicode">03C3</span></div>
-      <div class="glyph"><span class="char">&#x3c6;</span><span class="unicode">03C6</span></div>
-      <div class="glyph"><span class="char">&#x3c7;</span><span class="unicode">03C7</span></div>
-      <div class="glyph"><span class="char">&#x3c8;</span><span class="unicode">03C8</span></div>
-      <div class="glyph"><span class="char">&#x3c9;</span><span class="unicode">03C9</span></div>
-
-      <h2 class="group">Punctuation</h2>
-
-      <div class="glyph"><span class="char">&#x2026;</span><span class="unicode">2026</span></div>
-      <div class="glyph"><span class="char">&#x2022;</span><span class="unicode">2022</span></div>
-      <div class="glyph"><span class="char">&#x2013;</span><span class="unicode">2013</span></div>
-      <div class="glyph"><span class="char">&#x2014;</span><span class="unicode">2014</span></div>
-      <div class="glyph"><span class="char">&#x201a;</span><span class="unicode">201A</span></div>
-      <div class="glyph"><span class="char">&#x201e;</span><span class="unicode">201E</span></div>
-      <div class="glyph"><span class="char">&#x201c;</span><span class="unicode">201C</span></div>
-      <div class="glyph"><span class="char">&#x201d;</span><span class="unicode">201D</span></div>
-      <div class="glyph"><span class="char">&#x2018;</span><span class="unicode">2018</span></div>
-      <div class="glyph"><span class="char">&#x2019;</span><span class="unicode">2019</span></div>
-      <div class="glyph"><span class="char">&#x2039;</span><span class="unicode">2039</span></div>
-      <div class="glyph"><span class="char">&#x203a;</span><span class="unicode">203A</span></div>
-      <div class="glyph"><span class="char">&#x2044;</span><span class="unicode">2044</span></div>
-
-      <h2 class="group">Modifiers and Diacritics</h2>
-
-      <div class="glyph"><span class="char">&#x02dd;</span><span class="unicode">02DD</span></div>
-      <div class="glyph"><span class="char">&#x02c6;</span><span class="unicode">02C6</span></div>
-      <div class="glyph"><span class="char">&#x02c7;</span><span class="unicode">02C7</span></div>
-      <div class="glyph"><span class="char">&#x02d8;</span><span class="unicode">02D8</span></div>
-      <div class="glyph"><span class="char">&#x02da;</span><span class="unicode">02DA</span></div>
-      <div class="glyph"><span class="char">&#x02dc;</span><span class="unicode">02DC</span></div>
-      <div class="glyph"><span class="char">&#x02db;</span><span class="unicode">02DB</span></div>
-
-      <h2 class="group">Hiragana</h2>
-
-      <!-- 0x3040 -->
-      <div class="glyph"><span class="char">&#x3041;</span><span class="unicode">3041</span></div>
-      <div class="glyph"><span class="char">&#x3042;</span><span class="unicode">3042</span></div>
-      <div class="glyph"><span class="char">&#x3043;</span><span class="unicode">3043</span></div>
-      <div class="glyph"><span class="char">&#x3044;</span><span class="unicode">3044</span></div>
-      <div class="glyph"><span class="char">&#x3045;</span><span class="unicode">3045</span></div>
-      <div class="glyph"><span class="char">&#x3046;</span><span class="unicode">3046</span></div>
-      <div class="glyph"><span class="char">&#x3047;</span><span class="unicode">3047</span></div>
-      <div class="glyph"><span class="char">&#x3048;</span><span class="unicode">3048</span></div>
-      <div class="glyph"><span class="char">&#x3049;</span><span class="unicode">3049</span></div>
-      <div class="glyph"><span class="char">&#x304a;</span><span class="unicode">304A</span></div>
-      <div class="glyph"><span class="char">&#x304b;</span><span class="unicode">304B</span></div>
-      <div class="glyph"><span class="char">&#x304c;</span><span class="unicode">304C</span></div>
-      <div class="glyph"><span class="char">&#x304d;</span><span class="unicode">304D</span></div>
-      <div class="glyph"><span class="char">&#x304e;</span><span class="unicode">304E</span></div>
-      <div class="glyph"><span class="char">&#x304f;</span><span class="unicode">304F</span></div>
-      <!-- 0x3050 -->
-      <div class="glyph"><span class="char">&#x3050;</span><span class="unicode">3050</span></div>
-      <div class="glyph"><span class="char">&#x3051;</span><span class="unicode">3051</span></div>
-      <div class="glyph"><span class="char">&#x3052;</span><span class="unicode">3052</span></div>
-      <div class="glyph"><span class="char">&#x3053;</span><span class="unicode">3053</span></div>
-      <div class="glyph"><span class="char">&#x3054;</span><span class="unicode">3054</span></div>
-      <div class="glyph"><span class="char">&#x3055;</span><span class="unicode">3055</span></div>
-      <div class="glyph"><span class="char">&#x3056;</span><span class="unicode">3056</span></div>
-      <div class="glyph"><span class="char">&#x3057;</span><span class="unicode">3057</span></div>
-      <div class="glyph"><span class="char">&#x3058;</span><span class="unicode">3058</span></div>
-      <div class="glyph"><span class="char">&#x3059;</span><span class="unicode">3059</span></div>
-      <div class="glyph"><span class="char">&#x305a;</span><span class="unicode">305A</span></div>
-      <div class="glyph"><span class="char">&#x305b;</span><span class="unicode">305B</span></div>
-      <div class="glyph"><span class="char">&#x305c;</span><span class="unicode">305C</span></div>
-      <div class="glyph"><span class="char">&#x305d;</span><span class="unicode">305D</span></div>
-      <div class="glyph"><span class="char">&#x305e;</span><span class="unicode">305E</span></div>
-      <div class="glyph"><span class="char">&#x305f;</span><span class="unicode">305F</span></div>
-      <!-- 0x3060 -->
-      <div class="glyph"><span class="char">&#x3060;</span><span class="unicode">3060</span></div>
-      <div class="glyph"><span class="char">&#x3061;</span><span class="unicode">3061</span></div>
-      <div class="glyph"><span class="char">&#x3062;</span><span class="unicode">3062</span></div>
-      <div class="glyph"><span class="char">&#x3063;</span><span class="unicode">3063</span></div>
-      <div class="glyph"><span class="char">&#x3064;</span><span class="unicode">3064</span></div>
-      <div class="glyph"><span class="char">&#x3065;</span><span class="unicode">3065</span></div>
-      <div class="glyph"><span class="char">&#x3066;</span><span class="unicode">3066</span></div>
-      <div class="glyph"><span class="char">&#x3067;</span><span class="unicode">3067</span></div>
-      <div class="glyph"><span class="char">&#x3068;</span><span class="unicode">3068</span></div>
-      <div class="glyph"><span class="char">&#x3069;</span><span class="unicode">3069</span></div>
-      <div class="glyph"><span class="char">&#x306a;</span><span class="unicode">306A</span></div>
-      <div class="glyph"><span class="char">&#x306b;</span><span class="unicode">306B</span></div>
-      <div class="glyph"><span class="char">&#x306c;</span><span class="unicode">306C</span></div>
-      <div class="glyph"><span class="char">&#x306d;</span><span class="unicode">306D</span></div>
-      <div class="glyph"><span class="char">&#x306e;</span><span class="unicode">306E</span></div>
-      <div class="glyph"><span class="char">&#x306f;</span><span class="unicode">306F</span></div>
-      <!-- 0x3070 -->
-      <div class="glyph"><span class="char">&#x3070;</span><span class="unicode">3070</span></div>
-      <div class="glyph"><span class="char">&#x3071;</span><span class="unicode">3071</span></div>
-      <div class="glyph"><span class="char">&#x3072;</span><span class="unicode">3072</span></div>
-      <div class="glyph"><span class="char">&#x3073;</span><span class="unicode">3073</span></div>
-      <div class="glyph"><span class="char">&#x3074;</span><span class="unicode">3074</span></div>
-      <div class="glyph"><span class="char">&#x3075;</span><span class="unicode">3075</span></div>
-      <div class="glyph"><span class="char">&#x3076;</span><span class="unicode">3076</span></div>
-      <div class="glyph"><span class="char">&#x3077;</span><span class="unicode">3077</span></div>
-      <div class="glyph"><span class="char">&#x3078;</span><span class="unicode">3078</span></div>
-      <div class="glyph"><span class="char">&#x3079;</span><span class="unicode">3079</span></div>
-      <div class="glyph"><span class="char">&#x307a;</span><span class="unicode">307A</span></div>
-      <div class="glyph"><span class="char">&#x307b;</span><span class="unicode">307B</span></div>
-      <div class="glyph"><span class="char">&#x307c;</span><span class="unicode">307C</span></div>
-      <div class="glyph"><span class="char">&#x307d;</span><span class="unicode">307D</span></div>
-      <div class="glyph"><span class="char">&#x307e;</span><span class="unicode">307E</span></div>
-      <div class="glyph"><span class="char">&#x307f;</span><span class="unicode">307F</span></div>
-      <!-- 0x3080 -->
-      <div class="glyph"><span class="char">&#x3080;</span><span class="unicode">3080</span></div>
-      <div class="glyph"><span class="char">&#x3081;</span><span class="unicode">3081</span></div>
-      <div class="glyph"><span class="char">&#x3082;</span><span class="unicode">3082</span></div>
-      <div class="glyph"><span class="char">&#x3083;</span><span class="unicode">3083</span></div>
-      <div class="glyph"><span class="char">&#x3084;</span><span class="unicode">3084</span></div>
-      <div class="glyph"><span class="char">&#x3085;</span><span class="unicode">3085</span></div>
-      <div class="glyph"><span class="char">&#x3086;</span><span class="unicode">3086</span></div>
-      <div class="glyph"><span class="char">&#x3087;</span><span class="unicode">3087</span></div>
-      <div class="glyph"><span class="char">&#x3088;</span><span class="unicode">3088</span></div>
-      <div class="glyph"><span class="char">&#x3089;</span><span class="unicode">3089</span></div>
-      <div class="glyph"><span class="char">&#x308a;</span><span class="unicode">308A</span></div>
-      <div class="glyph"><span class="char">&#x308b;</span><span class="unicode">308B</span></div>
-      <div class="glyph"><span class="char">&#x308c;</span><span class="unicode">308C</span></div>
-      <div class="glyph"><span class="char">&#x308d;</span><span class="unicode">308D</span></div>
-      <div class="glyph"><span class="char">&#x308e;</span><span class="unicode">308E</span></div>
-      <div class="glyph"><span class="char">&#x308f;</span><span class="unicode">308F</span></div>
-      <!-- 0x3090 -->
-      <div class="glyph"><span class="char">&#x3090;</span><span class="unicode">3090</span></div>
-      <div class="glyph"><span class="char">&#x3091;</span><span class="unicode">3091</span></div>
-      <div class="glyph"><span class="char">&#x3092;</span><span class="unicode">3092</span></div>
-      <div class="glyph"><span class="char">&#x3093;</span><span class="unicode">3093</span></div>
-      <div class="glyph"><span class="char">&#x3094;</span><span class="unicode">3094</span></div>
-      <div class="glyph"><span class="char">&#x3099;</span><span class="unicode">3099</span></div>
-      <div class="glyph"><span class="char">&#x309a;</span><span class="unicode">309A</span></div>
-      <div class="glyph"><span class="char">&#x309d;</span><span class="unicode">309D</span></div>
-      <div class="glyph"><span class="char">&#x309e;</span><span class="unicode">309E</span></div>
-
-      <h2 class="group">Katakana</h2>
-
-      <!-- 0x30a0 -->
-      <div class="glyph"><span class="char">&#x30a1;</span><span class="unicode">30A1</span></div>
-      <div class="glyph"><span class="char">&#x30a2;</span><span class="unicode">30A2</span></div>
-      <div class="glyph"><span class="char">&#x30a3;</span><span class="unicode">30A3</span></div>
-      <div class="glyph"><span class="char">&#x30a4;</span><span class="unicode">30A4</span></div>
-      <div class="glyph"><span class="char">&#x30a5;</span><span class="unicode">30A5</span></div>
-      <div class="glyph"><span class="char">&#x30a6;</span><span class="unicode">30A6</span></div>
-      <div class="glyph"><span class="char">&#x30a7;</span><span class="unicode">30A7</span></div>
-      <div class="glyph"><span class="char">&#x30a8;</span><span class="unicode">30A8</span></div>
-      <div class="glyph"><span class="char">&#x30a9;</span><span class="unicode">30A9</span></div>
-      <div class="glyph"><span class="char">&#x30aa;</span><span class="unicode">30AA</span></div>
-      <div class="glyph"><span class="char">&#x30ab;</span><span class="unicode">30AB</span></div>
-      <div class="glyph"><span class="char">&#x30ac;</span><span class="unicode">30AC</span></div>
-      <div class="glyph"><span class="char">&#x30ad;</span><span class="unicode">30AD</span></div>
-      <div class="glyph"><span class="char">&#x30ae;</span><span class="unicode">30AE</span></div>
-      <div class="glyph"><span class="char">&#x30af;</span><span class="unicode">30AF</span></div>
-      <!-- 0x30b0 -->
-      <div class="glyph"><span class="char">&#x30b0;</span><span class="unicode">30B0</span></div>
-      <div class="glyph"><span class="char">&#x30b1;</span><span class="unicode">30B1</span></div>
-      <div class="glyph"><span class="char">&#x30b2;</span><span class="unicode">30B2</span></div>
-      <div class="glyph"><span class="char">&#x30b3;</span><span class="unicode">30B3</span></div>
-      <div class="glyph"><span class="char">&#x30b4;</span><span class="unicode">30B4</span></div>
-      <div class="glyph"><span class="char">&#x30b5;</span><span class="unicode">30B5</span></div>
-      <div class="glyph"><span class="char">&#x30b6;</span><span class="unicode">30B6</span></div>
-      <div class="glyph"><span class="char">&#x30b7;</span><span class="unicode">30B7</span></div>
-      <div class="glyph"><span class="char">&#x30b8;</span><span class="unicode">30B8</span></div>
-      <div class="glyph"><span class="char">&#x30b9;</span><span class="unicode">30B9</span></div>
-      <div class="glyph"><span class="char">&#x30ba;</span><span class="unicode">30BA</span></div>
-      <div class="glyph"><span class="char">&#x30bb;</span><span class="unicode">30BB</span></div>
-      <div class="glyph"><span class="char">&#x30bc;</span><span class="unicode">30BC</span></div>
-      <div class="glyph"><span class="char">&#x30bd;</span><span class="unicode">30BD</span></div>
-      <div class="glyph"><span class="char">&#x30be;</span><span class="unicode">30BE</span></div>
-      <div class="glyph"><span class="char">&#x30bf;</span><span class="unicode">30BF</span></div>
-      <!-- 0x30c0 -->
-      <div class="glyph"><span class="char">&#x30c0;</span><span class="unicode">30C0</span></div>
-      <div class="glyph"><span class="char">&#x30c1;</span><span class="unicode">30C1</span></div>
-      <div class="glyph"><span class="char">&#x30c2;</span><span class="unicode">30C2</span></div>
-      <div class="glyph"><span class="char">&#x30c3;</span><span class="unicode">30C3</span></div>
-      <div class="glyph"><span class="char">&#x30c4;</span><span class="unicode">30C4</span></div>
-      <div class="glyph"><span class="char">&#x30c5;</span><span class="unicode">30C5</span></div>
-      <div class="glyph"><span class="char">&#x30c6;</span><span class="unicode">30C6</span></div>
-      <div class="glyph"><span class="char">&#x30c7;</span><span class="unicode">30C7</span></div>
-      <div class="glyph"><span class="char">&#x30c8;</span><span class="unicode">30C8</span></div>
-      <div class="glyph"><span class="char">&#x30c9;</span><span class="unicode">30C9</span></div>
-      <div class="glyph"><span class="char">&#x30ca;</span><span class="unicode">30CA</span></div>
-      <div class="glyph"><span class="char">&#x30cb;</span><span class="unicode">30CB</span></div>
-      <div class="glyph"><span class="char">&#x30cc;</span><span class="unicode">30CC</span></div>
-      <div class="glyph"><span class="char">&#x30cd;</span><span class="unicode">30CD</span></div>
-      <div class="glyph"><span class="char">&#x30ce;</span><span class="unicode">30CE</span></div>
-      <div class="glyph"><span class="char">&#x30cf;</span><span class="unicode">30CF</span></div>
-      <!-- 0x30d0 -->
-      <div class="glyph"><span class="char">&#x30d0;</span><span class="unicode">30C0</span></div>
-      <div class="glyph"><span class="char">&#x30d1;</span><span class="unicode">30C1</span></div>
-      <div class="glyph"><span class="char">&#x30d2;</span><span class="unicode">30C2</span></div>
-      <div class="glyph"><span class="char">&#x30d3;</span><span class="unicode">30C3</span></div>
-      <div class="glyph"><span class="char">&#x30d4;</span><span class="unicode">30C4</span></div>
-      <div class="glyph"><span class="char">&#x30d5;</span><span class="unicode">30C5</span></div>
-      <div class="glyph"><span class="char">&#x30d6;</span><span class="unicode">30C6</span></div>
-      <div class="glyph"><span class="char">&#x30d7;</span><span class="unicode">30C7</span></div>
-      <div class="glyph"><span class="char">&#x30d8;</span><span class="unicode">30C8</span></div>
-      <div class="glyph"><span class="char">&#x30d9;</span><span class="unicode">30C9</span></div>
-      <div class="glyph"><span class="char">&#x30da;</span><span class="unicode">30CA</span></div>
-      <div class="glyph"><span class="char">&#x30db;</span><span class="unicode">30CB</span></div>
-      <div class="glyph"><span class="char">&#x30dc;</span><span class="unicode">30CC</span></div>
-      <div class="glyph"><span class="char">&#x30dd;</span><span class="unicode">30CD</span></div>
-      <div class="glyph"><span class="char">&#x30de;</span><span class="unicode">30CE</span></div>
-      <div class="glyph"><span class="char">&#x30df;</span><span class="unicode">30CF</span></div>
-      <!-- 0x30e0 -->
-      <div class="glyph"><span class="char">&#x30e0;</span><span class="unicode">30E0</span></div>
-      <div class="glyph"><span class="char">&#x30e1;</span><span class="unicode">30E1</span></div>
-      <div class="glyph"><span class="char">&#x30e2;</span><span class="unicode">30E2</span></div>
-      <div class="glyph"><span class="char">&#x30e3;</span><span class="unicode">30E3</span></div>
-      <div class="glyph"><span class="char">&#x30e4;</span><span class="unicode">30E4</span></div>
-      <div class="glyph"><span class="char">&#x30e5;</span><span class="unicode">30E5</span></div>
-      <div class="glyph"><span class="char">&#x30e6;</span><span class="unicode">30E6</span></div>
-      <div class="glyph"><span class="char">&#x30e7;</span><span class="unicode">30E7</span></div>
-      <div class="glyph"><span class="char">&#x30e8;</span><span class="unicode">30E8</span></div>
-      <div class="glyph"><span class="char">&#x30e9;</span><span class="unicode">30E9</span></div>
-      <div class="glyph"><span class="char">&#x30ea;</span><span class="unicode">30EA</span></div>
-      <div class="glyph"><span class="char">&#x30eb;</span><span class="unicode">30EB</span></div>
-      <div class="glyph"><span class="char">&#x30ec;</span><span class="unicode">30EC</span></div>
-      <div class="glyph"><span class="char">&#x30ed;</span><span class="unicode">30ED</span></div>
-      <div class="glyph"><span class="char">&#x30ee;</span><span class="unicode">30EE</span></div>
-      <div class="glyph"><span class="char">&#x30ef;</span><span class="unicode">30EF</span></div>
-      <!-- 0x30f0 -->
-      <div class="glyph"><span class="char">&#x30f0;</span><span class="unicode">30F0</span></div>
-      <div class="glyph"><span class="char">&#x30f1;</span><span class="unicode">30F1</span></div>
-      <div class="glyph"><span class="char">&#x30f2;</span><span class="unicode">30F2</span></div>
-      <div class="glyph"><span class="char">&#x30f3;</span><span class="unicode">30F3</span></div>
-      <div class="glyph"><span class="char">&#x30f4;</span><span class="unicode">30F4</span></div>
-      <div class="glyph"><span class="char">&#x30f5;</span><span class="unicode">30F5</span></div>
-      <div class="glyph"><span class="char">&#x30f6;</span><span class="unicode">30F6</span></div>
-      <div class="glyph"><span class="char">&#x30f7;</span><span class="unicode">30F7</span></div>
-      <div class="glyph"><span class="char">&#x30f8;</span><span class="unicode">30F8</span></div>
-      <div class="glyph"><span class="char">&#x30f9;</span><span class="unicode">30F9</span></div>
-      <div class="glyph"><span class="char">&#x30fa;</span><span class="unicode">30FA</span></div>
-      <div class="glyph"><span class="char">&#x30fb;</span><span class="unicode">30FB</span></div>
-      <div class="glyph"><span class="char">&#x30fc;</span><span class="unicode">30FC</span></div>
-      <div class="glyph"><span class="char">&#x30fd;</span><span class="unicode">30FD</span></div>
-
-      <h2 class="group">Symbols</h2>
-
-      <div class="glyph"><span class="char">&#x0192;</span><span class="unicode">0192</span></div>
-      <div class="glyph"><span class="char">&#x23be;</span><span class="unicode">23BE</span></div>
-      <div class="glyph"><span class="char">&#x23ca;</span><span class="unicode">23CA</span></div>
-      <div class="glyph"><span class="char">&#x23cc;</span><span class="unicode">23CC</span></div>
-      <div class="glyph"><span class="char">&#x2669;</span><span class="unicode">2669</span></div>
-      <div class="glyph"><span class="char">&#x266a;</span><span class="unicode">266A</span></div>
-      <div class="glyph"><span class="char">&#x266b;</span><span class="unicode">266B</span></div>
-      <div class="glyph"><span class="char">&#x266c;</span><span class="unicode">266C</span></div>
-      <div class="glyph"><span class="char">&#x266d;</span><span class="unicode">266D</span></div>
-      <div class="glyph"><span class="char">&#x266e;</span><span class="unicode">266E</span></div>
-      <div class="glyph"><span class="char">&#x266f;</span><span class="unicode">266F</span></div>
-      <div class="glyph"><span class="char">&#x1d12b;</span><span class="unicode">1D12B</span></div>
-      <div class="glyph"><span class="char">&#x1d12a;</span><span class="unicode">1D12A</span></div>
-      <div class="glyph"><span class="char">&#x1d122;</span><span class="unicode">1D122</span></div>
-      <div class="glyph"><span class="char">&#x1d11e;</span><span class="unicode">1D11E</span></div>
-      <div class="glyph"><span class="char">&#x2639;</span><span class="unicode">2639</span></div>
-      <div class="glyph"><span class="char">&#x263a;</span><span class="unicode">263A</span></div>
-      <div class="glyph"><span class="char">&#x263c;</span><span class="unicode">263C</span></div>
-      <div class="glyph"><span class="char">&#x2640;</span><span class="unicode">2640</span></div>
-      <div class="glyph"><span class="char">&#x2642;</span><span class="unicode">2642</span></div>
-      <div class="glyph"><span class="char">&#x2660;</span><span class="unicode">2660</span></div>
-      <div class="glyph"><span class="char">&#x2663;</span><span class="unicode">2663</span></div>
-      <div class="glyph"><span class="char">&#x2665;</span><span class="unicode">2665</span></div>
-      <div class="glyph"><span class="char">&#x2666;</span><span class="unicode">2666</span></div>
-      <div class="glyph"><span class="char">&#x2713;</span><span class="unicode">2713</span></div>
-      <div class="glyph"><span class="char">&#x2122;</span><span class="unicode">2122</span></div>
-      <div class="glyph"><span class="char">&#x2020;</span><span class="unicode">2020</span></div>
-      <div class="glyph"><span class="char">&#x2021;</span><span class="unicode">2021</span></div>
-      <div class="glyph"><span class="char">&#x2b63;</span><span class="unicode">2B63</span></div>
-      <div class="glyph"><span class="char">&#x2b60;</span><span class="unicode">2B60</span></div>
-      <div class="glyph"><span class="char">&#x2b62;</span><span class="unicode">2B62</span></div>
-      <div class="glyph"><span class="char">&#x2b61;</span><span class="unicode">2B61</span></div>
-      <div class="glyph"><span class="char">&#x20ac;</span><span class="unicode">20AC</span></div>
-      <div class="glyph"><span class="char">&#x2260;</span><span class="unicode">2260</span></div>
-      <div class="glyph"><span class="char">&#x2265;</span><span class="unicode">2265</span></div>
-      <div class="glyph"><span class="char">&#x2264;</span><span class="unicode">2264</span></div>
-      <div class="glyph"><span class="char">&#x2248;</span><span class="unicode">2248</span></div>
-      <div class="glyph"><span class="char">&#x221e;</span><span class="unicode">221E</span></div>
-      <div class="glyph"><span class="char">&#x222b;</span><span class="unicode">222B</span></div>
-      <div class="glyph"><span class="char">&#x220f;</span><span class="unicode">220F</span></div>
-      <div class="glyph"><span class="char">&#x2211;</span><span class="unicode">2211</span></div>
-      <div class="glyph"><span class="char">&#x221a;</span><span class="unicode">221A</span></div>
-      <div class="glyph"><span class="char">&#x2202;</span><span class="unicode">2202</span></div>
-      <div class="glyph"><span class="char">&#x2030;</span><span class="unicode">2030</span></div>
-      <div class="glyph"><span class="char">&#x22a3;</span><span class="unicode">22A3</span></div>
-      <div class="glyph"><span class="char">&#x2191;</span><span class="unicode">2191</span></div>
-      <div class="glyph"><span class="char">&#x2197;</span><span class="unicode">2197</span></div>
-      <div class="glyph"><span class="char">&#x2192;</span><span class="unicode">2192</span></div>
-      <div class="glyph"><span class="char">&#x2198;</span><span class="unicode">2198</span></div>
-      <div class="glyph"><span class="char">&#x2193;</span><span class="unicode">2193</span></div>
-      <div class="glyph"><span class="char">&#x2199;</span><span class="unicode">2199</span></div>
-      <div class="glyph"><span class="char">&#x2190;</span><span class="unicode">2190</span></div>
-      <div class="glyph"><span class="char">&#x2196;</span><span class="unicode">2196</span></div>
-      <div class="glyph"><span class="char">&#x2194;</span><span class="unicode">2194</span></div>
-      <div class="glyph"><span class="char">&#x2195;</span><span class="unicode">2195</span></div>
-
-      <h2 class="group">Block Elements</h2>
-
-      <div class="glyph"><span class="char">&#x2581;</span><span class="unicode">2581</span></div>
-      <div class="glyph"><span class="char">&#x2582;</span><span class="unicode">2582</span></div>
-      <div class="glyph"><span class="char">&#x2583;</span><span class="unicode">2583</span></div>
-      <div class="glyph"><span class="char">&#x2584;</span><span class="unicode">2584</span></div>
-      <div class="glyph"><span class="char">&#x2588;</span><span class="unicode">2588</span></div>
-      <div class="glyph"><span class="char">&#x2580;</span><span class="unicode">2580</span></div>
-      <div class="glyph"><span class="char">&#x2594;</span><span class="unicode">2594</span></div>
-      <div class="glyph"><span class="char">&#x258f;</span><span class="unicode">258F</span></div>
-      <div class="glyph"><span class="char">&#x258e;</span><span class="unicode">258E</span></div>
-      <div class="glyph"><span class="char">&#x258d;</span><span class="unicode">258D</span></div>
-      <div class="glyph"><span class="char">&#x258c;</span><span class="unicode">258C</span></div>
-      <div class="glyph"><span class="char">&#x2590;</span><span class="unicode">2590</span></div>
-      <div class="glyph"><span class="char">&#x2595;</span><span class="unicode">2595</span></div>
-      <div class="glyph"><span class="char">&#x2596;</span><span class="unicode">2596</span></div>
-      <div class="glyph"><span class="char">&#x2597;</span><span class="unicode">2597</span></div>
-      <div class="glyph"><span class="char">&#x2598;</span><span class="unicode">2598</span></div>
-      <div class="glyph"><span class="char">&#x2599;</span><span class="unicode">2599</span></div>
-      <div class="glyph"><span class="char">&#x259a;</span><span class="unicode">259A</span></div>
-      <div class="glyph"><span class="char">&#x259b;</span><span class="unicode">259B</span></div>
-      <div class="glyph"><span class="char">&#x259c;</span><span class="unicode">259C</span></div>
-      <div class="glyph"><span class="char">&#x259d;</span><span class="unicode">259D</span></div>
-      <div class="glyph"><span class="char">&#x259e;</span><span class="unicode">259E</span></div>
-      <div class="glyph"><span class="char">&#x259f;</span><span class="unicode">259F</span></div>
-      <div class="glyph"><span class="char">&#x2592;</span><span class="unicode">2592</span></div>
-      <div class="glyph"><span class="char">&#x25cf;</span><span class="unicode">25CF</span></div>
-      <div class="glyph"><span class="char">&#x25cb;</span><span class="unicode">25CB</span></div>
-      <div class="glyph"><span class="char">&#x25cc;</span><span class="unicode">25CC</span></div>
-      <div class="glyph"><span class="char">&#x25ca;</span><span class="unicode">25CA</span></div>
-      <div class="glyph"><span class="char">&#x25a0;</span><span class="unicode">25A0</span></div>
-      <div class="glyph"><span class="char">&#x25a1;</span><span class="unicode">25A1</span></div>
-      <div class="glyph"><span class="char">&#x25e5;</span><span class="unicode">25E5</span></div>
-      <div class="glyph"><span class="char">&#x25e2;</span><span class="unicode">25E2</span></div>
-      <div class="glyph"><span class="char">&#x25e3;</span><span class="unicode">25E3</span></div>
-      <div class="glyph"><span class="char">&#x25e4;</span><span class="unicode">25E4</span></div>
-      <div class="glyph"><span class="char">&#x256e;</span><span class="unicode">256E</span></div>
-      <div class="glyph"><span class="char">&#x256d;</span><span class="unicode">256D</span></div>
-      <div class="glyph"><span class="char">&#x256f;</span><span class="unicode">256F</span></div>
-      <div class="glyph"><span class="char">&#x2570;</span><span class="unicode">2570</span></div>
-      <div class="glyph"><span class="char">&#x2573;</span><span class="unicode">2573</span></div>
-      <div class="glyph"><span class="char">&#x2572;</span><span class="unicode">2572</span></div>
-      <div class="glyph"><span class="char">&#x2571;</span><span class="unicode">2571</span></div>
-      <div class="glyph"><span class="char">&#x2577;</span><span class="unicode">2577</span></div>
-      <div class="glyph"><span class="char">&#x252c;</span><span class="unicode">252C</span></div>
-      <div class="glyph"><span class="char">&#x2510;</span><span class="unicode">2510</span></div>
-      <div class="glyph"><span class="char">&#x250c;</span><span class="unicode">250C</span></div>
-      <div class="glyph"><span class="char">&#x2500;</span><span class="unicode">2500</span></div>
-      <div class="glyph"><span class="char">&#x2574;</span><span class="unicode">2574</span></div>
-      <div class="glyph"><span class="char">&#x2576;</span><span class="unicode">2576</span></div>
-      <div class="glyph"><span class="char">&#x2575;</span><span class="unicode">2575</span></div>
-      <div class="glyph"><span class="char">&#x2534;</span><span class="unicode">2534</span></div>
-      <div class="glyph"><span class="char">&#x2518;</span><span class="unicode">2518</span></div>
-      <div class="glyph"><span class="char">&#x2514;</span><span class="unicode">2514</span></div>
-      <div class="glyph"><span class="char">&#x2502;</span><span class="unicode">2502</span></div>
-      <div class="glyph"><span class="char">&#x253c;</span><span class="unicode">253C</span></div>
-      <div class="glyph"><span class="char">&#x2524;</span><span class="unicode">2524</span></div>
-      <div class="glyph"><span class="char">&#x251c;</span><span class="unicode">251C</span></div>
-
-      <h2 class="group">Symbols for Legacy Computing</h2>
-
-      <div class="glyph"><span class="char">&#x1fb8c;</span><span class="unicode">1FB8C</span></div>
-      <div class="glyph"><span class="char">&#x1fb8d;</span><span class="unicode">1FB8D</span></div>
-      <div class="glyph"><span class="char">&#x1fb8e;</span><span class="unicode">1FB8E</span></div>
-      <div class="glyph"><span class="char">&#x1fb8f;</span><span class="unicode">1FB8F</span></div>
-      <div class="glyph"><span class="char">&#x1fb90;</span><span class="unicode">1FB90</span></div>
-      <div class="glyph"><span class="char">&#x1fb95;</span><span class="unicode">1FB95</span></div>
-      <div class="glyph"><span class="char">&#x1fb96;</span><span class="unicode">1FB96</span></div>
-      <div class="glyph"><span class="char">&#x1fb9c;</span><span class="unicode">1FB9C</span></div>
-      <div class="glyph"><span class="char">&#x1fb9d;</span><span class="unicode">1FB9D</span></div>
-      <div class="glyph"><span class="char">&#x1fb9e;</span><span class="unicode">1FB9E</span></div>
-      <div class="glyph"><span class="char">&#x1fb9f;</span><span class="unicode">1FB9F</span></div>
-      <div class="glyph"><span class="char">&#x1fba0;</span><span class="unicode">1FBA0</span></div>
-      <div class="glyph"><span class="char">&#x1fba1;</span><span class="unicode">1FBA1</span></div>
-      <div class="glyph"><span class="char">&#x1fba2;</span><span class="unicode">1FBA2</span></div>
-      <div class="glyph"><span class="char">&#x1fba3;</span><span class="unicode">1FBA3</span></div>
-      <div class="glyph"><span class="char">&#x1fba4;</span><span class="unicode">1FBA4</span></div>
-      <div class="glyph"><span class="char">&#x1fba5;</span><span class="unicode">1FBA5</span></div>
-      <div class="glyph"><span class="char">&#x1fba6;</span><span class="unicode">1FBA6</span></div>
-      <div class="glyph"><span class="char">&#x1fba7;</span><span class="unicode">1FBA7</span></div>
-      <div class="glyph"><span class="char">&#x1fba8;</span><span class="unicode">1FBA8</span></div>
-      <div class="glyph"><span class="char">&#x1fba9;</span><span class="unicode">1FBA9</span></div>
-      <div class="glyph"><span class="char">&#x1fbc5;</span><span class="unicode">1FBC5</span></div>
-      <div class="glyph"><span class="char">&#x1fbc6;</span><span class="unicode">1FBC6</span></div>
-      <div class="glyph"><span class="char">&#x1fbc7;</span><span class="unicode">1FBC7</span></div>
-      <div class="glyph"><span class="char">&#x1fbc8;</span><span class="unicode">1FBC8</span></div>
-
-      <h2 class="group">Private Use Area</h2>
-
-      <h3 class="subgroup">PETSCII Characters</h3>
-
-      <div class="glyph"><span class="char">&#xe064;</span><span class="unicode">E064</span></div>
-      <div class="glyph"><span class="char">&#xe065;</span><span class="unicode">E065</span></div>
-      <div class="glyph"><span class="char">&#xe066;</span><span class="unicode">E066</span></div>
-      <div class="glyph"><span class="char">&#xe067;</span><span class="unicode">E067</span></div>
-      <div class="glyph"><span class="char">&#xe068;</span><span class="unicode">E068</span></div>
-      <div class="glyph"><span class="char">&#xe06c;</span><span class="unicode">E06C</span></div>
-      <div class="glyph"><span class="char">&#xe06f;</span><span class="unicode">E06F</span></div>
-      <div class="glyph"><span class="char">&#xe070;</span><span class="unicode">E070</span></div>
-      <div class="glyph"><span class="char">&#xe072;</span><span class="unicode">E072</span></div>
-      <div class="glyph"><span class="char">&#xe074;</span><span class="unicode">E074</span></div>
-      <div class="glyph"><span class="char">&#xe079;</span><span class="unicode">E079</span></div>
-      <div class="glyph"><span class="char">&#xe07c;</span><span class="unicode">E07C</span></div>
-      <div class="glyph"><span class="char">&#xe0a7;</span><span class="unicode">E0A7</span></div>
-      <div class="glyph"><span class="char">&#xe0a8;</span><span class="unicode">E0A8</span></div>
-      <div class="glyph"><span class="char">&#xe0b6;</span><span class="unicode">E0B6</span></div>
-      <div class="glyph"><span class="char">&#xe0b7;</span><span class="unicode">E0B7</span></div>
-      <div class="glyph"><span class="char">&#xe0b8;</span><span class="unicode">E0B8</span></div>
-      <div class="glyph"><span class="char">&#xe0ba;</span><span class="unicode">E0BA</span></div>
-      <div class="glyph"><span class="char">&#xe17f;</span><span class="unicode">E17F</span></div>
-      <div class="glyph"><span class="char">&#xe1a9;</span><span class="unicode">E1A9</span></div>
-
-      <h3 class="subgroup">Amstrad Characters</h3>
-
-      <div class="glyph"><span class="char">&#xefef;</span><span class="unicode">EFEF</span></div>
-      <div class="glyph"><span class="char">&#xeffc;</span><span class="unicode">EFFC</span></div>
-      <div class="glyph"><span class="char">&#xeffd;</span><span class="unicode">EFFD</span></div>
-
-      <h3 class="subgroup">Cursor</h3>
-
-      <div class="glyph"><span class="char">&#xefff;</span><span class="unicode">EFFF</span></div>
-
-      <h3 class="subgroup">Pixel Art</h3>
-
-      <div class="glyph"><span class="char">&#xf000;</span><span class="unicode">F000</span></div>
-      <div class="glyph"><span class="char">&#xf001;</span><span class="unicode">F001</span></div>
-      <div class="glyph"><span class="char">&#xf002;</span><span class="unicode">F002</span></div>
-      <div class="glyph"><span class="char">&#xf003;</span><span class="unicode">F003</span></div>
-      <div class="glyph"><span class="char">&#xf004;</span><span class="unicode">F004</span></div>
-      <div class="glyph"><span class="char">&#xf005;</span><span class="unicode">F005</span></div>
-      <div class="glyph"><span class="char">&#xf006;</span><span class="unicode">F006</span></div>
-      <div class="glyph"><span class="char">&#xf007;</span><span class="unicode">F007</span></div>
-      <div class="glyph"><span class="char">&#xf008;</span><span class="unicode">F008</span></div>
-      <div class="glyph"><span class="char">&#xf009;</span><span class="unicode">F009</span></div>
-      <div class="glyph"><span class="char">&#xf00a;</span><span class="unicode">F00A</span></div>
-      <div class="glyph"><span class="char">&#xf00b;</span><span class="unicode">F00B</span></div>
-      <div class="glyph"><span class="char">&#xf00c;</span><span class="unicode">F00C</span></div>
-      <div class="glyph"><span class="char">&#xf00d;</span><span class="unicode">F00D</span></div>
-      <div class="glyph"><span class="char">&#xf00e;</span><span class="unicode">F00E</span></div>
-      <div class="glyph"><span class="char">&#xf00f;</span><span class="unicode">F00F</span></div>
-
-      <div class="glyph"><span class="char">&#xf010;</span><span class="unicode">F010</span></div>
-      <div class="glyph"><span class="char">&#xf011;</span><span class="unicode">F011</span></div>
-      <div class="glyph"><span class="char">&#xf012;</span><span class="unicode">F012</span></div>
-      <div class="glyph"><span class="char">&#xf013;</span><span class="unicode">F013</span></div>
-      <div class="glyph"><span class="char">&#xf014;</span><span class="unicode">F014</span></div>
-      <div class="glyph"><span class="char">&#xf015;</span><span class="unicode">F015</span></div>
-      <div class="glyph"><span class="char">&#xf016;</span><span class="unicode">F016</span></div>
-      <div class="glyph"><span class="char">&#xf017;</span><span class="unicode">F017</span></div>
-      <div class="glyph"><span class="char">&#xf018;</span><span class="unicode">F018</span></div>
-      <div class="glyph"><span class="char">&#xf019;</span><span class="unicode">F019</span></div>
-      <div class="glyph"><span class="char">&#xf01a;</span><span class="unicode">F01A</span></div>
-      <div class="glyph"><span class="char">&#xf01b;</span><span class="unicode">F01B</span></div>
-      <div class="glyph"><span class="char">&#xf01c;</span><span class="unicode">F01C</span></div>
-      <div class="glyph"><span class="char">&#xf01d;</span><span class="unicode">F01D</span></div>
-      <div class="glyph"><span class="char">&#xf01e;</span><span class="unicode">F01E</span></div>
-      <div class="glyph"><span class="char">&#xf01f;</span><span class="unicode">F01F</span></div>
-
-      <div class="glyph"><span class="char">&#xf020;</span><span class="unicode">F020</span></div>
-      <div class="glyph"><span class="char">&#xf021;</span><span class="unicode">F021</span></div>
-      <div class="glyph"><span class="char">&#xf022;</span><span class="unicode">F022</span></div>
-      <div class="glyph"><span class="char">&#xf023;</span><span class="unicode">F023</span></div>
-      <div class="glyph"><span class="char">&#xf024;</span><span class="unicode">F024</span></div>
-      <div class="glyph"><span class="char">&#xf025;</span><span class="unicode">F025</span></div>
-      <div class="glyph"><span class="char">&#xf026;</span><span class="unicode">F026</span></div>
-      <div class="glyph"><span class="char">&#xf027;</span><span class="unicode">F027</span></div>
-      <div class="glyph"><span class="char">&#xf028;</span><span class="unicode">F028</span></div>
-      <div class="glyph"><span class="char">&#xf029;</span><span class="unicode">F029</span></div>
-      <div class="glyph"><span class="char">&#xf02a;</span><span class="unicode">F02A</span></div>
-      <div class="glyph"><span class="char">&#xf02b;</span><span class="unicode">F02B</span></div>
-      <div class="glyph"><span class="char">&#xf02c;</span><span class="unicode">F02C</span></div>
-      <div class="glyph"><span class="char">&#xf02d;</span><span class="unicode">F02D</span></div>
-      <div class="glyph"><span class="char">&#xf02e;</span><span class="unicode">F02E</span></div>
-      <div class="glyph"><span class="char">&#xf02f;</span><span class="unicode">F02F</span></div>
-
-      <div class="glyph"><span class="char">&#xf030;</span><span class="unicode">F030</span></div>
-      <div class="glyph"><span class="char">&#xf031;</span><span class="unicode">F031</span></div>
-      <div class="glyph"><span class="char">&#xf032;</span><span class="unicode">F032</span></div>
-      <div class="glyph"><span class="char">&#xf033;</span><span class="unicode">F033</span></div>
-      <div class="glyph"><span class="char">&#xf034;</span><span class="unicode">F034</span></div>
-      <div class="glyph"><span class="char">&#xf035;</span><span class="unicode">F035</span></div>
-      <div class="glyph"><span class="char">&#xf036;</span><span class="unicode">F036</span></div>
-      <div class="glyph"><span class="char">&#xf037;</span><span class="unicode">F037</span></div>
-      <div class="glyph"><span class="char">&#xf038;</span><span class="unicode">F038</span></div>
-      <div class="glyph"><span class="char">&#xf039;</span><span class="unicode">F039</span></div>
-      <div class="glyph"><span class="char">&#xf03a;</span><span class="unicode">F03A</span></div>
-      <div class="glyph"><span class="char">&#xf03b;</span><span class="unicode">F03B</span></div>
-      <div class="glyph"><span class="char">&#xf03c;</span><span class="unicode">F03C</span></div>
-      <div class="glyph"><span class="char">&#xf03d;</span><span class="unicode">F03D</span></div>
-      <div class="glyph"><span class="char">&#xf03e;</span><span class="unicode">F03E</span></div>
-      <div class="glyph"><span class="char">&#xf03f;</span><span class="unicode">F03F</span></div>
-
-      <div class="glyph"><span class="char">&#xf040;</span><span class="unicode">F040</span></div>
-      <div class="glyph"><span class="char">&#xf041;</span><span class="unicode">F041</span></div>
-      <div class="glyph"><span class="char">&#xf042;</span><span class="unicode">F042</span></div>
-      <div class="glyph"><span class="char">&#xf043;</span><span class="unicode">F043</span></div>
-      <div class="glyph"><span class="char">&#xf044;</span><span class="unicode">F044</span></div>
-      <div class="glyph"><span class="char">&#xf045;</span><span class="unicode">F045</span></div>
-      <div class="glyph"><span class="char">&#xf046;</span><span class="unicode">F046</span></div>
-      <div class="glyph"><span class="char">&#xf047;</span><span class="unicode">F047</span></div>
-      <div class="glyph"><span class="char">&#xf048;</span><span class="unicode">F048</span></div>
-      <div class="glyph"><span class="char">&#xf049;</span><span class="unicode">F049</span></div>
-      <div class="glyph"><span class="char">&#xf04a;</span><span class="unicode">F04A</span></div>
-      <div class="glyph"><span class="char">&#xf04b;</span><span class="unicode">F04B</span></div>
-      <div class="glyph"><span class="char">&#xf04c;</span><span class="unicode">F04C</span></div>
-      <div class="glyph"><span class="char">&#xf04d;</span><span class="unicode">F04D</span></div>
-      <div class="glyph"><span class="char">&#xf04e;</span><span class="unicode">F04E</span></div>
-      <div class="glyph"><span class="char">&#xf04f;</span><span class="unicode">F04F</span></div>
-
-      <div class="glyph"><span class="char">&#xf050;</span><span class="unicode">F050</span></div>
-      <div class="glyph"><span class="char">&#xf051;</span><span class="unicode">F051</span></div>
-      <div class="glyph"><span class="char">&#xf052;</span><span class="unicode">F052</span></div>
-      <div class="glyph"><span class="char">&#xf053;</span><span class="unicode">F053</span></div>
-      <div class="glyph"><span class="char">&#xf054;</span><span class="unicode">F054</span></div>
-      <div class="glyph"><span class="char">&#xf055;</span><span class="unicode">F055</span></div>
-      <div class="glyph"><span class="char">&#xf056;</span><span class="unicode">F056</span></div>
-      <div class="glyph"><span class="char">&#xf057;</span><span class="unicode">F057</span></div>
-
-    </section>
-    <footer>&copy; 2021 &mdash; Damian Vila</footer>
-  </div>
+    <p class="description">The following charts show the Unicode mappings for the glyphs included in <strong>Bescii</strong>.</p>
+  </header>
+  <main>
+    <table id="t">
+      <tbody>
+        <tr>
+          <th>0020</th>
+          <td class="c"> </td>
+          <td class="c">!</td>
+          <td class="c">"</td>
+          <td class="c">#</td>
+          <td class="c">$</td>
+          <td class="c">%</td>
+          <td class="c">&amp;</td>
+          <td class="c">'</td>
+          <td class="c">(</td>
+          <td class="c">)</td>
+          <td class="c">*</td>
+          <td class="c">+</td>
+          <td class="c">,</td>
+          <td class="c">-</td>
+          <td class="c">.</td>
+          <td class="c">/</td>
+        </tr>
+        <tr>
+          <th>0030</th>
+          <td class="c">0</td>
+          <td class="c">1</td>
+          <td class="c">2</td>
+          <td class="c">3</td>
+          <td class="c">4</td>
+          <td class="c">5</td>
+          <td class="c">6</td>
+          <td class="c">7</td>
+          <td class="c">8</td>
+          <td class="c">9</td>
+          <td class="c">:</td>
+          <td class="c">;</td>
+          <td class="c">&lt;</td>
+          <td class="c">=</td>
+          <td class="c">&gt;</td>
+          <td class="c">?</td>
+        </tr>
+        <tr>
+          <th>0040</th>
+          <td class="c">@</td>
+          <td class="c">A</td>
+          <td class="c">B</td>
+          <td class="c">C</td>
+          <td class="c">D</td>
+          <td class="c">E</td>
+          <td class="c">F</td>
+          <td class="c">G</td>
+          <td class="c">H</td>
+          <td class="c">I</td>
+          <td class="c">J</td>
+          <td class="c">K</td>
+          <td class="c">L</td>
+          <td class="c">M</td>
+          <td class="c">N</td>
+          <td class="c">O</td>
+        </tr>
+        <tr>
+          <th>0050</th>
+          <td class="c">P</td>
+          <td class="c">Q</td>
+          <td class="c">R</td>
+          <td class="c">S</td>
+          <td class="c">T</td>
+          <td class="c">U</td>
+          <td class="c">V</td>
+          <td class="c">W</td>
+          <td class="c">X</td>
+          <td class="c">Y</td>
+          <td class="c">Z</td>
+          <td class="c">[</td>
+          <td class="c">\</td>
+          <td class="c">]</td>
+          <td class="c">^</td>
+          <td class="c">_</td>
+        </tr>
+        <tr>
+          <th>0060</th>
+          <td class="c">`</td>
+          <td class="c">a</td>
+          <td class="c">b</td>
+          <td class="c">c</td>
+          <td class="c">d</td>
+          <td class="c">e</td>
+          <td class="c">f</td>
+          <td class="c">g</td>
+          <td class="c">h</td>
+          <td class="c">i</td>
+          <td class="c">j</td>
+          <td class="c">k</td>
+          <td class="c">l</td>
+          <td class="c">m</td>
+          <td class="c">n</td>
+          <td class="c">o</td>
+        </tr>
+        <tr class="b">
+          <th>0070</th>
+          <td class="c">p</td>
+          <td class="c">q</td>
+          <td class="c">r</td>
+          <td class="c">s</td>
+          <td class="c">t</td>
+          <td class="c">u</td>
+          <td class="c">v</td>
+          <td class="c">w</td>
+          <td class="c">x</td>
+          <td class="c">y</td>
+          <td class="c">z</td>
+          <td class="c">{</td>
+          <td class="c">|</td>
+          <td class="c">}</td>
+          <td class="c">~</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>00A0</th>
+          <td class="c">&nbsp;</td>
+          <td class="c">¡</td>
+          <td class="c">¢</td>
+          <td class="c">£</td>
+          <td class="c">¤</td>
+          <td class="c">¥</td>
+          <td class="c">¦</td>
+          <td class="c">§</td>
+          <td class="c">¨</td>
+          <td class="c">©</td>
+          <td class="c">ª</td>
+          <td class="c">«</td>
+          <td class="c">¬</td>
+          <td class="c">­</td>
+          <td class="c">®</td>
+          <td class="c">¯</td>
+        </tr>
+        <tr>
+          <th>00B0</th>
+          <td class="c">°</td>
+          <td class="c">±</td>
+          <td class="c">²</td>
+          <td class="c">³</td>
+          <td class="c">´</td>
+          <td class="c">µ</td>
+          <td class="c">¶</td>
+          <td class="c">·</td>
+          <td class="c">¸</td>
+          <td class="c">¹</td>
+          <td class="c">º</td>
+          <td class="c">»</td>
+          <td class="c">¼</td>
+          <td class="c">½</td>
+          <td class="c">¾</td>
+          <td class="c">¿</td>
+        </tr>
+        <tr>
+          <th>00C0</th>
+          <td class="c">À</td>
+          <td class="c">Á</td>
+          <td class="c">Â</td>
+          <td class="c">Ã</td>
+          <td class="c">Ä</td>
+          <td class="c">Å</td>
+          <td class="c">Æ</td>
+          <td class="c">Ç</td>
+          <td class="c">È</td>
+          <td class="c">É</td>
+          <td class="c">Ê</td>
+          <td class="c">Ë</td>
+          <td class="c">Ì</td>
+          <td class="c">Í</td>
+          <td class="c">Î</td>
+          <td class="c">Ï</td>
+        </tr>
+        <tr>
+          <th>00D0</th>
+          <td class="c">Ð</td>
+          <td class="c">Ñ</td>
+          <td class="c">Ò</td>
+          <td class="c">Ó</td>
+          <td class="c">Ô</td>
+          <td class="c">Õ</td>
+          <td class="c">Ö</td>
+          <td class="c">×</td>
+          <td class="c">Ø</td>
+          <td class="c">Ù</td>
+          <td class="c">Ú</td>
+          <td class="c">Û</td>
+          <td class="c">Ü</td>
+          <td class="c">Ý</td>
+          <td class="c">Þ</td>
+          <td class="c">ß</td>
+        </tr>
+        <tr>
+          <th>00E0</th>
+          <td class="c">à</td>
+          <td class="c">á</td>
+          <td class="c">â</td>
+          <td class="c">ã</td>
+          <td class="c">ä</td>
+          <td class="c">å</td>
+          <td class="c">æ</td>
+          <td class="c">ç</td>
+          <td class="c">è</td>
+          <td class="c">é</td>
+          <td class="c">ê</td>
+          <td class="c">ë</td>
+          <td class="c">ì</td>
+          <td class="c">í</td>
+          <td class="c">î</td>
+          <td class="c">ï</td>
+        </tr>
+        <tr class="b">
+          <th>00F0</th>
+          <td class="c">ð</td>
+          <td class="c">ñ</td>
+          <td class="c">ò</td>
+          <td class="c">ó</td>
+          <td class="c">ô</td>
+          <td class="c">õ</td>
+          <td class="c">ö</td>
+          <td class="c">÷</td>
+          <td class="c">ø</td>
+          <td class="c">ù</td>
+          <td class="c">ú</td>
+          <td class="c">û</td>
+          <td class="c">ü</td>
+          <td class="c">ý</td>
+          <td class="c">þ</td>
+          <td class="c">ÿ</td>
+        </tr>
+        <tr class="b">
+          <th>0130</th>
+          <td></td>
+          <td class="c">ı</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>0150</th>
+          <td></td>
+          <td></td>
+          <td class="c">Œ</td>
+          <td class="c">œ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>0170</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">Ŵ</td>
+          <td class="c">ŵ</td>
+          <td class="c">Ŷ</td>
+          <td class="c">ŷ</td>
+          <td class="c">Ÿ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>0190</th>
+          <td></td>
+          <td></td>
+          <td class="c">ƒ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>02C0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">ˆ</td>
+          <td class="c">ˇ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>02D0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">˘</td>
+          <td class="c">˙</td>
+          <td class="c">˚</td>
+          <td class="c">˛</td>
+          <td class="c">˜</td>
+          <td class="c">˝</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>0300</th>
+          <td class="c">̀</td>
+          <td class="c">́</td>
+          <td class="c">̂</td>
+          <td class="c">̃</td>
+          <td class="c">̄</td>
+          <td></td>
+          <td class="c">̆</td>
+          <td class="c">̇</td>
+          <td class="c">̈</td>
+          <td></td>
+          <td class="c">̊</td>
+          <td class="c">̋</td>
+          <td class="c">̌</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>0310</th>
+          <td></td>
+          <td></td>
+          <td class="c">̒</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>0320</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">̦</td>
+          <td class="c">̧</td>
+          <td class="c">̨</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>0330</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">̵</td>
+          <td class="c">̶</td>
+          <td class="c">̷</td>
+          <td class="c"≯</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>0380</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">΄</td>
+          <td class="c">΅</td>
+          <td class="c">Ά</td>
+          <td></td>
+          <td class="c">Έ</td>
+          <td class="c">Ή</td>
+          <td class="c">Ί</td>
+          <td></td>
+          <td class="c">Ό</td>
+          <td></td>
+          <td class="c">Ύ</td>
+          <td class="c">Ώ</td>
+        </tr>
+        <tr>
+          <th>0390</th>
+          <td class="c">ΐ</td>
+          <td class="c">Α</td>
+          <td class="c">Β</td>
+          <td class="c">Γ</td>
+          <td class="c">Δ</td>
+          <td class="c">Ε</td>
+          <td class="c">Ζ</td>
+          <td class="c">Η</td>
+          <td class="c">Θ</td>
+          <td class="c">Ι</td>
+          <td class="c">Κ</td>
+          <td class="c">Λ</td>
+          <td class="c">Μ</td>
+          <td class="c">Ν</td>
+          <td class="c">Ξ</td>
+          <td class="c">Ο</td>
+        </tr>
+        <tr>
+          <th>03A0</th>
+          <td class="c">Π</td>
+          <td class="c">Ρ</td>
+          <td></td>
+          <td class="c">Σ</td>
+          <td class="c">Τ</td>
+          <td class="c">Υ</td>
+          <td class="c">Φ</td>
+          <td class="c">Χ</td>
+          <td class="c">Ψ</td>
+          <td class="c">Ω</td>
+          <td class="c">Ϊ</td>
+          <td class="c">Ϋ</td>
+          <td class="c">ά</td>
+          <td class="c">έ</td>
+          <td class="c">ή</td>
+          <td class="c">ί</td>
+        </tr>
+        <tr>
+          <th>03B0</th>
+          <td class="c">ΰ</td>
+          <td class="c">α</td>
+          <td class="c">β</td>
+          <td class="c">γ</td>
+          <td class="c">δ</td>
+          <td class="c">ε</td>
+          <td class="c">ζ</td>
+          <td class="c">η</td>
+          <td class="c">θ</td>
+          <td class="c">ι</td>
+          <td class="c">κ</td>
+          <td class="c">λ</td>
+          <td class="c">μ</td>
+          <td class="c">ν</td>
+          <td class="c">ξ</td>
+          <td class="c">ο</td>
+        </tr>
+        <tr class="b">
+          <th>03C0</th>
+          <td class="c">π</td>
+          <td class="c">ρ</td>
+          <td class="c">ς</td>
+          <td class="c">σ</td>
+          <td class="c">τ</td>
+          <td class="c">υ</td>
+          <td class="c">φ</td>
+          <td class="c">χ</td>
+          <td class="c">ψ</td>
+          <td class="c">ω</td>
+          <td class="c">ϊ</td>
+          <td class="c">ϋ</td>
+          <td class="c">ό</td>
+          <td class="c">ύ</td>
+          <td class="c">ώ</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>0400</th>
+          <td></td>
+          <td class="c">Ё</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>0410</th>
+          <td class="c">А</td>
+          <td class="c">Б</td>
+          <td class="c">В</td>
+          <td class="c">Г</td>
+          <td class="c">Д</td>
+          <td class="c">Е</td>
+          <td class="c">Ж</td>
+          <td class="c">З</td>
+          <td class="c">И</td>
+          <td class="c">Й</td>
+          <td class="c">К</td>
+          <td class="c">Л</td>
+          <td class="c">М</td>
+          <td class="c">Н</td>
+          <td class="c">О</td>
+          <td class="c">П</td>
+        </tr>
+        <tr>
+          <th>0420</th>
+          <td class="c">Р</td>
+          <td class="c">С</td>
+          <td class="c">Т</td>
+          <td class="c">У</td>
+          <td class="c">Ф</td>
+          <td class="c">Х</td>
+          <td class="c">Ц</td>
+          <td class="c">Ч</td>
+          <td class="c">Ш</td>
+          <td class="c">Щ</td>
+          <td class="c">Ъ</td>
+          <td class="c">Ы</td>
+          <td class="c">Ь</td>
+          <td class="c">Э</td>
+          <td class="c">Ю</td>
+          <td class="c">Я</td>
+        </tr>
+        <tr>
+          <th>0430</th>
+          <td class="c">а</td>
+          <td class="c">б</td>
+          <td class="c">в</td>
+          <td class="c">г</td>
+          <td class="c">д</td>
+          <td class="c">е</td>
+          <td class="c">ж</td>
+          <td class="c">з</td>
+          <td class="c">и</td>
+          <td class="c">й</td>
+          <td class="c">к</td>
+          <td class="c">л</td>
+          <td class="c">м</td>
+          <td class="c">н</td>
+          <td class="c">о</td>
+          <td class="c">п</td>
+        </tr>
+        <tr>
+          <th>0440</th>
+          <td class="c">р</td>
+          <td class="c">с</td>
+          <td class="c">т</td>
+          <td class="c">у</td>
+          <td class="c">ф</td>
+          <td class="c">х</td>
+          <td class="c">ц</td>
+          <td class="c">ч</td>
+          <td class="c">ш</td>
+          <td class="c">щ</td>
+          <td class="c">ъ</td>
+          <td class="c">ы</td>
+          <td class="c">ь</td>
+          <td class="c">э</td>
+          <td class="c">ю</td>
+          <td class="c">я</td>
+        </tr>
+        <tr class="b">
+          <th>0450</th>
+          <td></td>
+          <td class="c">ё</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>05D0</th>
+          <td class="c">א</td>
+          <td class="c">ב</td>
+          <td class="c">ג</td>
+          <td class="c">ד</td>
+          <td class="c">ה</td>
+          <td class="c">ו</td>
+          <td class="c">ז</td>
+          <td class="c">ח</td>
+          <td class="c">ט</td>
+          <td class="c">י</td>
+          <td class="c">ך</td>
+          <td class="c">כ</td>
+          <td class="c">ל</td>
+          <td class="c">ם</td>
+          <td class="c">מ</td>
+          <td class="c">ן</td>
+        </tr>
+        <tr class="b">
+          <th>05E0</th>
+          <td class="c">נ</td>
+          <td class="c">ס</td>
+          <td class="c">ע</td>
+          <td class="c">ף</td>
+          <td class="c">פ</td>
+          <td class="c">ץ</td>
+          <td class="c">צ</td>
+          <td class="c">ק</td>
+          <td class="c">ר</td>
+          <td class="c">ש</td>
+          <td class="c">ת</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>1E80</th>
+          <td class="c">Ẁ</td>
+          <td class="c">ẁ</td>
+          <td class="c">Ẃ</td>
+          <td class="c">ẃ</td>
+          <td class="c">Ẅ</td>
+          <td class="c">ẅ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>1E90</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">ẞ</td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>1EF0</th>
+          <td></td>
+          <td></td>
+          <td class="c">Ỳ</td>
+          <td class="c">ỳ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2010</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">–</td>
+          <td class="c">—</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">‘</td>
+          <td class="c">’</td>
+          <td class="c">‚</td>
+          <td></td>
+          <td class="c">“</td>
+          <td class="c">”</td>
+          <td class="c">„</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2020</th>
+          <td class="c">†</td>
+          <td class="c">‡</td>
+          <td class="c">•</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">…</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2030</th>
+          <td class="c">‰</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">‹</td>
+          <td class="c">›</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2040</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⁄</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>20A0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">₧</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">€</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2120</th>
+          <td></td>
+          <td></td>
+          <td class="c">™</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2190</th>
+          <td class="c">←</td>
+          <td class="c">↑</td>
+          <td class="c">→</td>
+          <td class="c">↓</td>
+          <td class="c">↔</td>
+          <td class="c">↕</td>
+          <td class="c">↖</td>
+          <td class="c">↗</td>
+          <td class="c">↘</td>
+          <td class="c">↙</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>21A0</th>
+          <td></td>
+          <td class="c">↡</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>21B0</th>
+          <td></td>
+          <td></td>
+          <td class="c">↲</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2200</th>
+          <td></td>
+          <td></td>
+          <td class="c">∂</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">∏</td>
+        </tr>
+        <tr>
+          <th>2210</th>
+          <td></td>
+          <td class="c">∑</td>
+          <td class="c">−</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">√</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">∞</td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2220</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">∫</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2240</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">≈</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2260</th>
+          <td class="c">≠</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">≤</td>
+          <td class="c">≥</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2290</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⊖</td>
+          <td class="c">⊗</td>
+          <td></td>
+          <td class="c">⊙</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>22A0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⊣</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2370</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⍻</td>
+          <td></td>
+          <td></td>
+          <td class="c">⍾</td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2380</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⎍</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>23B0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⎾</td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>23C0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⏊</td>
+          <td></td>
+          <td class="c">⏌</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2420</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">␦</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2500</th>
+          <td class="c">─</td>
+          <td></td>
+          <td class="c">│</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">┌</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2510</th>
+          <td class="c">┐</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">└</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">┘</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">├</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2520</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">┤</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">┬</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2530</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">┴</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">┼</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2550</th>
+          <td class="c">═</td>
+          <td class="c">║</td>
+          <td class="c">╒</td>
+          <td class="c">╓</td>
+          <td class="c">╔</td>
+          <td class="c">╕</td>
+          <td class="c">╖</td>
+          <td class="c">╗</td>
+          <td class="c">╘</td>
+          <td class="c">╙</td>
+          <td class="c">╚</td>
+          <td class="c">╛</td>
+          <td class="c">╜</td>
+          <td class="c">╝</td>
+          <td class="c">╞</td>
+          <td class="c">╟</td>
+        </tr>
+        <tr>
+          <th>2560</th>
+          <td class="c">╠</td>
+          <td class="c">╡</td>
+          <td class="c">╢</td>
+          <td class="c">╣</td>
+          <td class="c">╤</td>
+          <td class="c">╥</td>
+          <td class="c">╦</td>
+          <td class="c">╧</td>
+          <td class="c">╨</td>
+          <td class="c">╩</td>
+          <td class="c">╪</td>
+          <td class="c">╫</td>
+          <td class="c">╬</td>
+          <td class="c">╭</td>
+          <td class="c">╮</td>
+          <td class="c">╯</td>
+        </tr>
+        <tr>
+          <th>2570</th>
+          <td class="c">╰</td>
+          <td class="c">╱</td>
+          <td class="c">╲</td>
+          <td class="c">╳</td>
+          <td class="c">╴</td>
+          <td class="c">╵</td>
+          <td class="c">╶</td>
+          <td class="c">╷</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2580</th>
+          <td class="c">▀</td>
+          <td class="c">▁</td>
+          <td class="c">▂</td>
+          <td class="c">▃</td>
+          <td class="c">▄</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">█</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">▌</td>
+          <td class="c">▍</td>
+          <td class="c">▎</td>
+          <td class="c">▏</td>
+        </tr>
+        <tr>
+          <th>2590</th>
+          <td class="c">▐</td>
+          <td></td>
+          <td class="c">▒</td>
+          <td></td>
+          <td class="c">▔</td>
+          <td class="c">▕</td>
+          <td class="c">▖</td>
+          <td class="c">▗</td>
+          <td class="c">▘</td>
+          <td class="c">▙</td>
+          <td class="c">▚</td>
+          <td class="c">▛</td>
+          <td class="c">▜</td>
+          <td class="c">▝</td>
+          <td class="c">▞</td>
+          <td class="c">▟</td>
+        </tr>
+        <tr class="b">
+          <th>25A0</th>
+          <td class="c">■</td>
+          <td class="c">□</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>25C0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">◊</td>
+          <td class="c">○</td>
+          <td class="c">◌</td>
+          <td></td>
+          <td></td>
+          <td class="c">●</td>
+        </tr>
+        <tr>
+          <th>25E0</th>
+          <td></td>
+          <td></td>
+          <td class="c">◢</td>
+          <td class="c">◣</td>
+          <td class="c">◤</td>
+          <td class="c">◥</td>
+          <td class="c">◦</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>25F0</th>
+          <td class="c">◰</td>
+          <td class="c">◱</td>
+          <td class="c">◲</td>
+          <td class="c">◳</td>
+          <td class="c">◴</td>
+          <td class="c">◵</td>
+          <td class="c">◶</td>
+          <td class="c">◷</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>2630</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">☹</td>
+          <td class="c">☺</td>
+          <td></td>
+          <td class="c">☼</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2640</th>
+          <td class="c">♀</td>
+          <td></td>
+          <td class="c">♂</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2660</th>
+          <td class="c">♠</td>
+          <td></td>
+          <td></td>
+          <td class="c">♣</td>
+          <td></td>
+          <td class="c">♥</td>
+          <td class="c">♦</td>
+          <td></td>
+          <td></td>
+          <td class="c">♩</td>
+          <td class="c">♪</td>
+          <td class="c">♫</td>
+          <td class="c">♬</td>
+          <td class="c">♭</td>
+          <td class="c">♮</td>
+          <td class="c">♯</td>
+        </tr>
+        <tr class="b">
+          <th>2710</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">✓</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>29D0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">⧖</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>2B60</th>
+          <td class="c">⭠</td>
+          <td class="c">⭡</td>
+          <td class="c">⭢</td>
+          <td class="c">⭣</td>
+          <td class="c">⭤</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>3040</th>
+          <td></td>
+          <td class="c">ぁ</td>
+          <td class="c">あ</td>
+          <td class="c">ぃ</td>
+          <td class="c">い</td>
+          <td class="c">ぅ</td>
+          <td class="c">う</td>
+          <td class="c">ぇ</td>
+          <td class="c">え</td>
+          <td class="c">ぉ</td>
+          <td class="c">お</td>
+          <td class="c">か</td>
+          <td class="c">が</td>
+          <td class="c">き</td>
+          <td class="c">ぎ</td>
+          <td class="c">く</td>
+        </tr>
+        <tr>
+          <th>3050</th>
+          <td class="c">ぐ</td>
+          <td class="c">け</td>
+          <td class="c">げ</td>
+          <td class="c">こ</td>
+          <td class="c">ご</td>
+          <td class="c">さ</td>
+          <td class="c">ざ</td>
+          <td class="c">し</td>
+          <td class="c">じ</td>
+          <td class="c">す</td>
+          <td class="c">ず</td>
+          <td class="c">せ</td>
+          <td class="c">ぜ</td>
+          <td class="c">そ</td>
+          <td class="c">ぞ</td>
+          <td class="c">た</td>
+        </tr>
+        <tr>
+          <th>3060</th>
+          <td class="c">だ</td>
+          <td class="c">ち</td>
+          <td class="c">ぢ</td>
+          <td class="c">っ</td>
+          <td class="c">つ</td>
+          <td class="c">づ</td>
+          <td class="c">て</td>
+          <td class="c">で</td>
+          <td class="c">と</td>
+          <td class="c">ど</td>
+          <td class="c">な</td>
+          <td class="c">に</td>
+          <td class="c">ぬ</td>
+          <td class="c">ね</td>
+          <td class="c">の</td>
+          <td class="c">は</td>
+        </tr>
+        <tr>
+          <th>3070</th>
+          <td class="c">ば</td>
+          <td class="c">ぱ</td>
+          <td class="c">ひ</td>
+          <td class="c">び</td>
+          <td class="c">ぴ</td>
+          <td class="c">ふ</td>
+          <td class="c">ぶ</td>
+          <td class="c">ぷ</td>
+          <td class="c">へ</td>
+          <td class="c">べ</td>
+          <td class="c">ぺ</td>
+          <td class="c">ほ</td>
+          <td class="c">ぼ</td>
+          <td class="c">ぽ</td>
+          <td class="c">ま</td>
+          <td class="c">み</td>
+        </tr>
+        <tr>
+          <th>3080</th>
+          <td class="c">む</td>
+          <td class="c">め</td>
+          <td class="c">も</td>
+          <td class="c">ゃ</td>
+          <td class="c">や</td>
+          <td class="c">ゅ</td>
+          <td class="c">ゆ</td>
+          <td class="c">ょ</td>
+          <td class="c">よ</td>
+          <td class="c">ら</td>
+          <td class="c">り</td>
+          <td class="c">る</td>
+          <td class="c">れ</td>
+          <td class="c">ろ</td>
+          <td class="c">ゎ</td>
+          <td class="c">わ</td>
+        </tr>
+        <tr>
+          <th>3090</th>
+          <td class="c">ゐ</td>
+          <td class="c">ゑ</td>
+          <td class="c">を</td>
+          <td class="c">ん</td>
+          <td class="c">ゔ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">゙</td>
+          <td class="c">゚</td>
+          <td></td>
+          <td></td>
+          <td class="c">ゝ</td>
+          <td class="c">ゞ</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>30A0</th>
+          <td></td>
+          <td class="c">ァ</td>
+          <td class="c">ア</td>
+          <td class="c">ィ</td>
+          <td class="c">イ</td>
+          <td class="c">ゥ</td>
+          <td class="c">ウ</td>
+          <td class="c">ェ</td>
+          <td class="c">エ</td>
+          <td class="c">ォ</td>
+          <td class="c">オ</td>
+          <td class="c">カ</td>
+          <td class="c">ガ</td>
+          <td class="c">キ</td>
+          <td class="c">ギ</td>
+          <td class="c">ク</td>
+        </tr>
+        <tr>
+          <th>30B0</th>
+          <td class="c">グ</td>
+          <td class="c">ケ</td>
+          <td class="c">ゲ</td>
+          <td class="c">コ</td>
+          <td class="c">ゴ</td>
+          <td class="c">サ</td>
+          <td class="c">ザ</td>
+          <td class="c">シ</td>
+          <td class="c">ジ</td>
+          <td class="c">ス</td>
+          <td class="c">ズ</td>
+          <td class="c">セ</td>
+          <td class="c">ゼ</td>
+          <td class="c">ソ</td>
+          <td class="c">ゾ</td>
+          <td class="c">タ</td>
+        </tr>
+        <tr>
+          <th>30C0</th>
+          <td class="c">ダ</td>
+          <td class="c">チ</td>
+          <td class="c">ヂ</td>
+          <td class="c">ッ</td>
+          <td class="c">ツ</td>
+          <td class="c">ヅ</td>
+          <td class="c">テ</td>
+          <td class="c">デ</td>
+          <td class="c">ト</td>
+          <td class="c">ド</td>
+          <td class="c">ナ</td>
+          <td class="c">ニ</td>
+          <td class="c">ヌ</td>
+          <td class="c">ネ</td>
+          <td class="c">ノ</td>
+          <td class="c">ハ</td>
+        </tr>
+        <tr>
+          <th>30D0</th>
+          <td class="c">バ</td>
+          <td class="c">パ</td>
+          <td class="c">ヒ</td>
+          <td class="c">ビ</td>
+          <td class="c">ピ</td>
+          <td class="c">フ</td>
+          <td class="c">ブ</td>
+          <td class="c">プ</td>
+          <td class="c">ヘ</td>
+          <td class="c">ベ</td>
+          <td class="c">ペ</td>
+          <td class="c">ホ</td>
+          <td class="c">ボ</td>
+          <td class="c">ポ</td>
+          <td class="c">マ</td>
+          <td class="c">ミ</td>
+        </tr>
+        <tr>
+          <th>30E0</th>
+          <td class="c">ム</td>
+          <td class="c">メ</td>
+          <td class="c">モ</td>
+          <td class="c">ャ</td>
+          <td class="c">ヤ</td>
+          <td class="c">ュ</td>
+          <td class="c">ユ</td>
+          <td class="c">ョ</td>
+          <td class="c">ヨ</td>
+          <td class="c">ラ</td>
+          <td class="c">リ</td>
+          <td class="c">ル</td>
+          <td class="c">レ</td>
+          <td class="c">ロ</td>
+          <td class="c">ヮ</td>
+          <td class="c">ワ</td>
+        </tr>
+        <tr class="b">
+          <th>30F0</th>
+          <td class="c">ヰ</td>
+          <td class="c">ヱ</td>
+          <td class="c">ヲ</td>
+          <td class="c">ン</td>
+          <td class="c">ヴ</td>
+          <td class="c">ヵ</td>
+          <td class="c">ヶ</td>
+          <td class="c">ヷ</td>
+          <td class="c">ヸ</td>
+          <td class="c">ヹ</td>
+          <td class="c">ヺ</td>
+          <td class="c">・</td>
+          <td class="c">ー</td>
+          <td class="c">ヽ</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>E000</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+        </tr>
+        <tr class="b">
+          <th>E010</th>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>E060</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>E070</th>
+          <td class="c"></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>E0A0</th>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>E0B0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>E170</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+        </tr>
+        <tr class="b">
+          <th>E1A0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>EFE0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+        </tr>
+        <tr>
+          <th>EFF0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td></td>
+          <td class="c"></td>
+        </tr>
+        <tr>
+          <th>F000</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+        </tr>
+        <tr>
+          <th>F010</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+        </tr>
+        <tr>
+          <th>F020</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td></td>
+          <td class="c"></td>
+        </tr>
+        <tr>
+          <th>F030</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+        </tr>
+        <tr>
+          <th>F040</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+        </tr>
+        <tr class="b">
+          <th>F050</th>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td class="c"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>F0D0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c"></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>FB00</th>
+          <td></td>
+          <td class="c">ﬁ</td>
+          <td class="c">ﬂ</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>1D110</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">𝄞</td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>1D120</th>
+          <td></td>
+          <td></td>
+          <td class="c">𝄢</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">𝄪</td>
+          <td class="c">𝄫</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="b">
+          <th>1F5F0</th>
+          <td></td>
+          <td></td>
+          <td class="c">🗲</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>1FB80</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">🮌</td>
+          <td class="c">🮍</td>
+          <td class="c">🮎</td>
+          <td class="c">🮏</td>
+        </tr>
+        <tr>
+          <th>1FB90</th>
+          <td class="c">🮐</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">🮕</td>
+          <td class="c">🮖</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">🮜</td>
+          <td class="c">🮝</td>
+          <td class="c">🮞</td>
+          <td class="c">🮟</td>
+        </tr>
+        <tr class="b">
+          <th>1FBA0</th>
+          <td class="c">🮠</td>
+          <td class="c">🮡</td>
+          <td class="c">🮢</td>
+          <td class="c">🮣</td>
+          <td class="c">🮤</td>
+          <td class="c">🮥</td>
+          <td class="c">🮦</td>
+          <td class="c">🮧</td>
+          <td class="c">🮨</td>
+          <td class="c">🮩</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>1FBC0</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="c">🯅</td>
+          <td class="c">🯆</td>
+          <td class="c">🯇</td>
+          <td class="c">🯈</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <footer>List generated with: <a href="//torinak.com/font/lsfont.html" target="_blank">lsfont.html</a> by <a href="//torinak.com/~jb/" rel="author" target="_blank">Jan Bobrowski</a></footer>
 </body>
-</html>
