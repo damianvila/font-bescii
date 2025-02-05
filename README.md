@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> This repository has moved to https://codeberg.org/Dmian/font-bescii
+
+> [!WARNING]
+> This repository is now archived and no longer mantained on GitHub.
+
+
 # BESCII pixel font
 
 An 8x8 pixel font based on PETSCII for [BASIC Engine](http://basicengine.org/).
